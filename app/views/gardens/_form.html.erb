@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+<strong>Add a Home Gardener</strong>
+<%= form_for([@garden.gardener, @garden]) do |g| %>
+<fieldset>
+
+      <%= g.label :garden_located_at_home %> 
+      <%= g.text_field :garden_located_at_home %>
+    </p>
+
+    <p>
+      <%= g.label :garden_location %> 
+      <%= g.text_field :garden_location %>
+    </p>
+
+    <p>
+      <%= g.label :garden_w %> 
+      <%= g.text_field :garden_w %>
+    </p>
+
+    <p>
+      <%= g.label :garden_h %>
+      <%= g.text_field :garden_h %>
+    </p>
+    <p>
+    <%= g.label :avatar, "please take a picture of the garden" %>
+    <%= g.file_field :avatar %>
+    </p>
+
+<div class="form-actions">
+       <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+<% end %>
+</div>
+</fieldset>
