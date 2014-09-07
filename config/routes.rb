@@ -8,6 +8,16 @@ Rails.application.routes.draw do
     resources :gardeners do
       resources :gardens
       resources :living_arrangements
+      resources :sfls
+      resources :educations
+      resources :employment
+      resources :grants
+      resources :abilities
+      resources :expenses
+      resources :healths
+      resources :general_iq_statements
+      resources :previous_experiences
+      resources :expenditure
   end
    resources :attendance_registers
   end

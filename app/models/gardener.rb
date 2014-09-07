@@ -5,6 +5,16 @@ class Gardener < ActiveRecord::Base
   has_many :support_visits
   has_one :garden
   has_one :living_arrangement
+  has_one :sfl
+  has_one :education
+  has_one :employment
+  has_one :grant
+  has_one :ability
+  has_one :expense
+  has_one :health
+  has_one :general_statement
+  has_one :previous_experience
+  has_one :expenditure
   #has_many :documents
  # has_attached_file :avatar, :styles => {:thumb => "100x100>"}
  # validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+<strong>Gardener Ability to grow</strong>
+<%= form_for([@group, @gardener, @gardener.build_ability]) do |g| %>
+<fieldset>
+<div class="btn-group btn-group-justified">
+      <%= g.label :water_access, "How do you access water?" %>
+       <%= g.label :water_access_inside_dwelling, "There is water inside the house" %>
+      <%= g.radio_button :water_access, :inside_dwelling %> <br/>
+
+      <%= g.label :water_access_inside_yard, "There is water inside the yard, but not in the house" %>
+      <%= g.radio_button :water_access, :inside_yard %> <br/>
+
+      <%= g.label :water_access_community_stand_less_than_200, "Water is recieved at a community stand less than 200m away" %>
+      <%= g.radio_button :water_access, :community_stand_less_than_200 %> <br/>
+
+       <%= g.label :water_access_community_stand_between_200_and_500, "Water is recieved at a community stand between 200m to 500m away" %>
+      <%= g.radio_button :water_access, :community_between_200_and_500 %> <br/>
+
+         <%= g.label :water_access_community_stand_between_500_and_1km, "Water is recieved at a community stand between 500m to 1km away" %>
+      <%= g.radio_button :water_access, :community_between_500_and_1km %> <br/>
+
+       <%= g.label :water_access_community_stand_futher_than_1km, "Water is recieved at a community stand futher than 1km away" %>
+      <%= g.radio_button :water_access, :comunity_futher_than_1km %></br>
+      </div>
+
+        <p>
+      <%= g.label :tools, "Do you have any of your own gardening tools?" %> 
+      <%= g.check_box :tools %>
+     </p>
+     <p>
+    <%= g.label :tools, "do you have any of the following tools?" %> <br>
+    <%= g.check_box(:gardening_tools, :spade) %>
+    <%= g.label(:gardening_tools_spade, "spade") %> <br>
+    <%= g.check_box(:gardening_tools, :shovel) %>
+    <%= g.label(:gardening_tools_spade, "shovel") %> <br>
+    <%= g.check_box(:gardening_tools, :rake) %>
+     <%= g.label(:gardening_tools_spade, "rake") %> <br>
+   </p>
+
+<div class="form-actions">
+       <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+<% end %>
+</div>
+</fieldset>

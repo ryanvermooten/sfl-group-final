@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+<strong>Gardener Living Arrangements</strong>
+<%= form_for([@group, @gardener, @gardener.build_grants]) do |g| %>
+<fieldset>
+<div class="btn-group btn-group-justified">
+     <p>
+      <%= g.label :recieved, "Are you currently recieving a grant?" %> 
+      <%= g.check_box :recieved %>
+     </p>
+       <p>
+      <%= g.label :type, "What is type of grant do you recieve?" %> 
+       <%= g.label :type_child_mantaince, "Child mantaince" %>
+      <%= g.radio_button :type, :child_mantaince %> <br/>
+
+      <%= g.label :type_disability, "Disability" %>
+      <%= g.radio_button :type, :disability %> <br/>
+
+      <%= g.label :type_casual, "Casual" %>
+      <%= g.radio_button :grant_type, :casual %> <br/>
+
+      <%= g.label :type_old_age, "Old Age" %>
+      <%= g.radio_button :grant_type, :old_age %> <br/>
+      
+    </p>
+
+<div class="form-actions">
+       <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+<% end %>
+</div>
+</fieldset>

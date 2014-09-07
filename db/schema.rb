@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905082240) do
+ActiveRecord::Schema.define(version: 20140907122632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abilities", force: true do |t|
+    t.integer "gardener_id"
+    t.string  "water_access"
+    t.boolean "tools"
+    t.string  "tools_list"
+  end
 
   create_table "attendance_registers", force: true do |t|
     t.integer  "training_session_id"
@@ -50,6 +57,34 @@ ActiveRecord::Schema.define(version: 20140905082240) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "educations", force: true do |t|
+    t.integer "gardener_id"
+    t.string  "level"
+  end
+
+  create_table "employements", force: true do |t|
+    t.integer "gardener_id"
+    t.boolean "employed"
+    t.string  "type"
+    t.string  "earning_power"
+  end
+
+  create_table "expenditures", force: true do |t|
+    t.integer "gardener_id"
+    t.string  "where"
+    t.string  "amount"
+  end
+
+  create_table "experiences", force: true do |t|
+    t.integer "gardener_id"
+    t.boolean "previous_experience"
+    t.string  "experience_qualitative"
+    t.boolean "currently_growing"
+    t.string  "currently_growing_neg"
+    t.string  "usage"
+    t.string  "selling_amount"
+  end
 
   create_table "gardeners", force: true do |t|
     t.string   "first_name"
@@ -123,6 +158,19 @@ ActiveRecord::Schema.define(version: 20140905082240) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "general_statements_tables", force: true do |t|
+    t.integer "gardener_id"
+    t.string  "gardener"
+    t.string  "trainer"
+  end
+
+  create_table "grants", force: true do |t|
+    t.integer "gardener_id"
+    t.boolean "recieved"
+    t.string  "type"
+    t.string  "earning_power"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "group_name"
     t.string   "area"
@@ -136,10 +184,26 @@ ActiveRecord::Schema.define(version: 20140905082240) do
     t.datetime "group_picture_updated_at"
   end
 
+  create_table "healths", force: true do |t|
+    t.string  "meals"
+    t.string  "meals_with_veg"
+    t.string  "health"
+    t.string  "illness"
+    t.boolean "other_illness"
+    t.string  "other_illness_qual"
+  end
+
   create_table "living_arrangements", force: true do |t|
     t.integer "gardener_id"
     t.string  "marital_status"
     t.string  "number_of_people_in_household"
+  end
+
+  create_table "sfls", force: true do |t|
+    t.integer "gardener_id"
+    t.string  "referral"
+    t.boolean "other_organizations"
+    t.string  "other_organizations_qualitative"
   end
 
   create_table "training_sessions", force: true do |t|
