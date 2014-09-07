@@ -52,31 +52,46 @@
       <%= g.radio_button :meals_with_veg, :six %> 
       <%= g.label :meals_with_veg_6, "6" %> <br/>
 
-      <%= g.label :health, "In general how would you say your health is?" %> <br/>
+      <h3> In general how would you say your health is? </h3> <br/>
 
-      <%= g.radio_button :diet_general_health, :excellent %> 
+      <%= g.radio_button :health, :excellent %> 
       <%= g.label :health, "excellent" %> <br/>
       
 
-      <%= g.radio_button :diet_general_health, :very_good %> 
-      <%= g.label :diet_general_health_very_good, "Very Good" %> <br/>
+      <%= g.radio_button :health, :very_good %> 
+      <%= g.label :health_very_good, "Very Good" %> <br/>
 
-      <%= g.radio_button :diet_general_health, :good %> 
-      <%= g.label :diet_general_health_good, "Good" %> <br/>
-      
-
-      <%= g.radio_button :diet_general_health, :fair %> 
-      <%= g.label :diet_general_health_fair, "Fair" %> <br/>
+      <%= g.radio_button :health, :good %> 
+      <%= g.label :health_good, "Good" %> <br/>
       
 
-      <%= g.radio_button :diet_general_health, :poor %> 
-      <%= g.label :diet_general_health_poor, "Poor" %> <br/>
+      <%= g.radio_button :health, :fair %> 
+      <%= g.label :health_fair, "Fair" %> <br/>
       
 
-       <%= g.radio_button :diet_general_health, :very_poor %> 
-       <%= g.label :diet_general_health_very_poor, "Very Poor" %> <br/>
+      <%= g.radio_button :health, :poor %> 
+      <%= g.label :health_poor, "Poor" %> <br/>
       
+
+       <%= g.radio_button :health, :very_poor %> 
+       <%= g.label :health_very_poor, "Very Poor" %> <br/>
       
+      <h3> Do you have any of the following illnesses </h3>
+
+      <%= g.radio_button :illness, :diabetes %>
+      <%= g.label :illness_diabetes, "Diabetes" %> <br/>
+
+      <%= g.radio_button :illness, :cancer %>
+      <%= g.label :illness_cancer, "Cancer" %> <br/>
+
+      <%= g.radio_button :illness, :arthritis %>
+      <%= g.label :illness_cancer, "Arthritis" %> <br/>
+
+      <%= g.radio_button :illness, :tb %>
+      <%= g.label :illness_tb, "TB" %> <br/>
+
+      <%= g.radio_button :illness, :HIV_AIDS %>
+      <%= g.label :illness_hiv_aids, "HIV/AIDS" %> <br/>
 
 
 

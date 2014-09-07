@@ -3,11 +3,11 @@
 <fieldset>
 <div class="btn-group btn-group-justified">
 <body> "how did you hear about Soil For Life?" </body>
-      <%= g.label :friend_or_neighbour, "A friend, family or neighbour" %>
+      <%= g.label :refferal_friend_or_neighbour, "A friend, family or neighbour" %>
       <%= g.radio_button :refferal, :friend_or_neighbour %> <br/>
-      <%= g.label :sfl_trainer, "A Soil For Life trainer" %>
+      <%= g.label :refferal_sfl_trainer, "A Soil For Life trainer" %>
       <%= g.radio_button :refferal, :sfl_trainer %> <br/>
-      <%= g.label :sfl_event, "A Soil For Life Event" %>
+      <%= g.label :refferal_sfl_event, "A Soil For Life Event" %>
       <%= g.radio_button :refferal, :sfl_event %> <br/>
     </p>
 
@@ -19,6 +19,9 @@
  <%= g.label :other_organizations_qualitative, "which other organizations have you recieved help from?" %> <br>
   <%= g.text_field :other_organizations_qualitative %>
    </p>
+<p>
+<%= g.label :ambiton, "Why do you want to learn how to grow vegetables?" %>
+<%= g.text_field :ambiton %>
 
 <div class="form-actions">
        <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>

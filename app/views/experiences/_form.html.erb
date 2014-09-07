@@ -1,0 +1,39 @@
+<div class="panel panel-default">
+<strong>Home Gardener Experience </strong>
+<%= form_for([@group, @gardener, @gardener.build_experience]) do |g| %>
+<fieldset>
+
+<p>
+      <%= g.label :previous_experience, "Do you have any experience" %> 
+      <%= g.check_box :previous_experience %>
+    </p>
+
+    <p>
+      <%= g.label :experience_qualitative, "What experience do you have?"  %> 
+      <%= g.text_field :experience_qualitative%>
+    </p>
+
+    <p>
+      <%= g.check_box :currently_growing %>
+      <%= g.label :currently_growing, "Are you currenly growing vegetables?" %> 
+    </p>
+
+    <p>
+      <%= g.label :currently_growing_neg, "Why are you not growing vegetables?" %>
+      <%= g.text_field :currently_growing_neg 
+    </p>
+    <p>
+    <%= g.label :usage, "What are you currently using your vegetables for?" %>
+    <%= g.radio_button :usage, :Eating, "Eating" %>
+    <%= g.radio_buttun :usage :Selling, "Selling" %>
+    <%= g.radio_buttun :usage :Swapping, "Swapping" %>
+    <%= g.radio_buttun :usage :Sharing, "Sharing" %>
+    <%= g.radio_buttun :usage :Soup_kitchens, "Giving to soup kitchens" %>
+    <%= g.radio_buttun :usage :jams_and_chutneys, "Making jams and chutneys" %>
+    </p>
+
+<div class="form-actions">
+       <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+<% end %>
+</div>
+</fieldset>

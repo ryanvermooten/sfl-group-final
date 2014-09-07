@@ -29,7 +29,7 @@ end
     #2nd you create the trainer wih arguments in params [:gardener]
   @gardener= group.gardeners.find(params[:gardener_id])
    @gardener.build_garden(garden_params)
-      if @gardener.save
+      if @gardener.save!
         redirect_to(controller: 'living_arrangements', id: @gardener, action: new)
         #render "living_arrangements/new", id:@gardener 
        
