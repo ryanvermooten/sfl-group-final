@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :groups do
     resources :gardeners do
       resources :gardens
+      resources :living_arrangements
   end
    resources :attendance_registers
   end

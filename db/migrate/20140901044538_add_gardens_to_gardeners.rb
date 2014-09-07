@@ -6,6 +6,7 @@ class AddGardensToGardeners < ActiveRecord::Migration
   		t.string :garden_location
   		t.integer :garden_l
   		t.integer :garden_w
+  		
   end
 end
 end

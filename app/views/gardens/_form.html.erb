@@ -1,10 +1,10 @@
 <div class="panel panel-default">
-<strong>Add a Home Gardener</strong>
-<%= form_for([@garden.gardener, @garden]) do |g| %>
+<strong>Add a Home Garden</strong>
+<%= form_for([@group, @gardener, @gardener.build_garden]) do |g| %>
 <fieldset>
 
-      <%= g.label :garden_located_at_home %> 
-      <%= g.text_field :garden_located_at_home %>
+      <%= g.label :is_the_garden_located_at_home? %> 
+      <%= g.check_box :garden_located_at_home %>
     </p>
 
     <p>
@@ -13,13 +13,13 @@
     </p>
 
     <p>
-      <%= g.label :garden_w %> 
+      <%= g.label :garden_width %> 
       <%= g.text_field :garden_w %>
     </p>
 
     <p>
-      <%= g.label :garden_h %>
-      <%= g.text_field :garden_h %>
+      <%= g.label :garden_length %>
+      <%= g.text_field :garden_l %>
     </p>
     <p>
     <%= g.label :avatar, "please take a picture of the garden" %>

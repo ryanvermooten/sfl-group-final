@@ -4,6 +4,7 @@ class Gardener < ActiveRecord::Base
   has_many :attendance_registers, through: :attendance_registers_training_sessions
   has_many :support_visits
   has_one :garden
+  has_one :living_arrangement
   #has_many :documents
  # has_attached_file :avatar, :styles => {:thumb => "100x100>"}
  # validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

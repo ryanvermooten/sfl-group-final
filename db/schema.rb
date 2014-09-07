@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901044538) do
+ActiveRecord::Schema.define(version: 20140905082240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,11 +111,16 @@ ActiveRecord::Schema.define(version: 20140901044538) do
   add_index "gardeners", ["group_id"], name: "index_gardeners_on_group_id", using: :btree
 
   create_table "gardens", force: true do |t|
-    t.integer "gardener_id"
-    t.boolean "garden_at_home"
-    t.string  "garden_location"
-    t.integer "garden_l"
-    t.integer "garden_w"
+    t.integer  "gardener_id"
+    t.boolean  "garden_at_home"
+    t.string   "garden_location"
+    t.integer  "garden_l"
+    t.integer  "garden_w"
+    t.boolean  "garden_located_at_home"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "groups", force: true do |t|
@@ -129,6 +134,12 @@ ActiveRecord::Schema.define(version: 20140901044538) do
     t.string   "group_picture_content_type"
     t.integer  "group_picture_file_size"
     t.datetime "group_picture_updated_at"
+  end
+
+  create_table "living_arrangements", force: true do |t|
+    t.integer "gardener_id"
+    t.string  "marital_status"
+    t.string  "number_of_people_in_household"
   end
 
   create_table "training_sessions", force: true do |t|
