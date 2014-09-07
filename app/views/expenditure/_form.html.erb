@@ -1,25 +1,41 @@
 <div class="panel panel-default">
-<strong>Gardener Living Arrangements</strong>
-<%= form_for([@group, @gardener, @gardener.build_living_arrangement]) do |g| %>
+<strong>Gardener Expenditure</strong>
+<%= form_for([@group, @gardener, @gardener.build_expenditure]) do |g| %>
 <fieldset>
 <div class="btn-group btn-group-justified">
-      <%= g.label :maritial_status_single, "Single" %>
-      <%= g.radio_button :marital_status, :single %> <br/>
-      <%= g.label :maritial_status_married, "Married" %>
-      <%= g.radio_button :marital_status, :married %> <br/>
-      <%= g.label :maritial_status_seperated, "Seperated" %>
-      <%= g.radio_button :marital_status, :seperated %> <br/>
-      <%= g.label :maritial_status_living_together_like_a_married_couple, "Living Together Like A Married Couple" %>
-      <%= g.radio_button :marital_status, :living_together_like_a_married_couple %> <br/>
-      <%= g.label :maritial_status_divorced, "Divorced" %>
-      <%= g.radio_button :marital_status, :divorced %> <br/>
-      <%= g.label :maritial_status_seperated, "Widowed" %>
-      <%= g.radio_button :marital_status, :widowed %> <br/>
+      <%= g.radio_button :where, :stand_or_stall %>
+      <%= g.label :where, "Stand or stall" %> <br/>
+       <%= g.radio_button :where, :tuck_shop %> 
+      <%= g.label :where_tuck_shop, "Tuck shop" %><br/>
+       <%= g.radio_button :where, :friends_or_neighbours %> <br/>
+      <%= g.label :where_friends_or_neighbours, "Friends or neighbours" %>
+     <%= g.radio_button :where, :dont_buy %> <br/>
+      <%= g.label :where_dont_buy, "I don’t buy vegetables" %>
 
-       <p>
-      <%= g.label :number_of_people_in_household %> 
-      <%= g.text_field :number_of_people_in_household %>
-    </p>
+  <%= g.radio_button :amount, :none %> 
+  <%= g.label :amount_none, "None" %> <br/>
+    
+ <%= g.radio_button :amount, :R1_to_R50 %> 
+     <%= g.label :amount_R1_to_R50, "R1-R50" %> <br/>
+
+      <%= g.radio_button :amount, :R51_to_R100 %> 
+      <%= g.label :amount_R51_to_R100, "R51-R100" %> <br/>
+
+      <%= g.radio_button :amount, :R101_to_R150 %> 
+       <%= g.label :amount_R101_to_150, "R101-R150" %> <br/>
+ 
+      <%= g.radio_button :amount, :R901_to_R1200 %> 
+      <%= g.label :amount_R151_to_200, "R151-R200" %> <br/>
+      
+      <%= g.radio_button :amount, :R201_to_R250 %> 
+      <%= g.label :amount_R201_to_R250, "R201-R250" %> <br/>
+      
+      <%= g.radio_button :amount, :R2500_plus %> 
+      <%= g.label :amount_250_plus, "More than R250 a month" %> <br/>
+      
+      <%= g.radio_button :amount, :na %> 
+      <%= g.label :amount_na, "Prefer not to answer or don't know" %> <br/>
+</div>      
 
 <div class="form-actions">
        <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
