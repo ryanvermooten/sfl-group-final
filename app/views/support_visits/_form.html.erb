@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+<%= form_for([@group, @gardener, @gardener.build_support_visit]) do |g| %>
+<fieldset>
+
+<p>
+    <%= g.label :avatar, "please take a picture of the gardener in the garden" %>
+    <%= g.file_field :avatar %>
+
+    <%= g.label :notes, "notes." %><br/>
+    <%= g.text_field :notes %> <body> Please make a note if gardener was not around or any other notes you would like to make for records sake </body>
+    </p>
+
+<div class="form-actions">
+       <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+<% end %>
+</div>
+</fieldset>

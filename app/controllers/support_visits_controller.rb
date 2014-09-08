@@ -1,4 +1,4 @@
-class GardensController < ApplicationController
+class SupportVisitsController < ApplicationController
  
 def new                                                   
   #1st you retrieve the group thanks to params[:group_id] 
@@ -8,7 +8,7 @@ def new
                                                           
   respond_to do |format|                                  
     format.html #new.html.erb                             
-    format.xml {render :xml => @garden}                   
+    format.xml {render :xml => @support_visit}                   
   end                                                     
 end                                                       
  
@@ -18,58 +18,36 @@ end
     group = Group.find(params[:group_id])
     #2nd you retrieve the comment thanks to params[:id]
     @gardener= group.gardeners.find(params[:gardener_id])
-    @gardener.build_garden
+    @gardener.build_support_visit(support_visit_params)
   end
  
 # POST /groups/:group_id/group_gardeners
 # POST /groups/:group_id/group_gardeners.xml
-  def create
+ def create
     #1st you retrieve the group thanks to params[:group_id]
   group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
   @gardener= group.gardeners.find(params[:gardener_id])
-   @gardener.build_garden(garden_params)
-      if @gardener.save!
-        redirect_to new_group_gardener_living_arrangement_path(group, @gardener)
-        #render "living_arrangements/new", id:@gardener 
-       
-      else
-    render "new"
-  end
+   @gardener.build_support_visit(support_visit_params)
+        respond_to do |format|
+      if @gardener.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
-     # format.html {redirect_to([@gardener.group, @living_arrangements], :notice => 'Garden info was sucessfully saved' )}
-      #format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@living_arrangements] }
-    end
-  end
- 
- 
-  def update
-    #1st you retrieve the group thanks to params[:group_id]
-    group = Group.find(params[:group_id])
-    @gardener = group.gardeners.find(params[:id])
- 
-    respond_to do |format|
-      if @gardener.update_attributes(gardener_params)
-        #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
-     format.html {redirect_to([@gardener.group, @gardener], :notice => 'Garden was successfully updated')}
-     format.xml { head :ok}
+      format.html {redirect_to([@gardener.group, @group], :notice => 'Support visit completed successfully' )}
+      format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@gardener] }
       else
-        format.html {render :action => "edit"}
-        format.xml {render :xml => @gardener.errors, :status => :unprocessable_entity}
+        format.html {render :action => "new"}
+        format.xml {render :xml => @gardener.errors, status: :unprocessable_entity}
       end
     end
   end
-  
+ 
   private
  
-  def garden_params
-    params.require(:garden).permit(:gardener_id, :garden_located_at_home, :garden_location, :garden_w, :garden_l, :avatar)
+  def support_visit_params
+    params.require(:support_visit).permit(:gardener_id, :avatar, :notes)
   end
  
   def gardener_params
    params.require(:gardener).permit(:first_name, :last_name, :contact_number, :address, :group_id, :garden_at_home, :document, :id_number, :avatar)
   end
- 
-  def group_params
-  params.require(:group).permit(:name, :area, :group_id)
-  end
+end

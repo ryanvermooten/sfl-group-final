@@ -2,26 +2,30 @@
 <%= form_for([@group, @gardener, @gardener.build_sfl]) do |g| %>
 <fieldset>
 <div class="btn-group btn-group-justified">
-<body> "how did you hear about Soil For Life?" </body>
-      <%= g.label :refferal_friend_or_neighbour, "A friend, family or neighbour" %>
-      <%= g.radio_button :refferal, :friend_or_neighbour %> <br/>
-      <%= g.label :refferal_sfl_trainer, "A Soil For Life trainer" %>
-      <%= g.radio_button :refferal, :sfl_trainer %> <br/>
-      <%= g.label :refferal_sfl_event, "A Soil For Life Event" %>
-      <%= g.radio_button :refferal, :sfl_event %> <br/>
+<h4> how did you hear about Soil For Life? </h4> <br/>
+
+      <%= g.radio_button :referral, :friend_or_neighbour %> 
+      <%= g.label :referral, "A friend, family or neighbour" %> <br/>
+      
+      <%= g.radio_button :referral, :sfl_trainer %>
+      <%= g.label :referral_sfl_trainer, "A Soil For Life trainer" %>
+       <br/>
+      <%= g.radio_button :referral, :sfl_event %>
+      <%= g.label :referral_sfl_event, "A Soil For Life Event" %>
+       <br/>
     </p>
 
    <p>
    <%= g.label :other_organizations, "Have you revieved help from any other organizations?" %> <br>
-<%= g.check_box :other_organizations %>
+<%= g.check_box :other_organizations %> <body> *Please tick the box if they have* </body>
  </p>
 <p>
  <%= g.label :other_organizations_qualitative, "which other organizations have you recieved help from?" %> <br>
   <%= g.text_field :other_organizations_qualitative %>
    </p>
 <p>
-<%= g.label :ambiton, "Why do you want to learn how to grow vegetables?" %>
-<%= g.text_field :ambiton %>
+<%= g.label :ambition, "Why do you want to learn how to grow vegetables?" %> <br/>
+<%= g.text_field :ambition %>
 
 <div class="form-actions">
        <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>

@@ -21,7 +21,8 @@
         <td><%= @gardener.contact_number %></td>
 
         <td><%= link_to 'Edit', edit_group_gardener_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %></td>
-        <%= link_to 'New Questions', new_group_gardener_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
+        <%= link_to 'Begin Initial Questionnaire', new_group_gardener_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
+        <%= link_to 'Record Support Visit', new_group_gardener_support_visit_path(@gardener.group, @gardener), class: "btn btn-sm btn-info" %>
       </tr>
   </tbody>
 </table>

@@ -10,14 +10,15 @@ Rails.application.routes.draw do
       resources :living_arrangements
       resources :sfls
       resources :educations
-      resources :employment
+      resources :employments
       resources :grants
       resources :abilities
       resources :expenses
       resources :healths
-      resources :general_iq_statements
-      resources :previous_experiences
-      resources :expenditure
+      resources :general_statements
+      resources :experiences
+      resources :expenditures
+      resources :support_visits
   end
    resources :attendance_registers
   end

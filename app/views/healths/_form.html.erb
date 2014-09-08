@@ -1,5 +1,4 @@
 <div class="panel panel-default">
-<strong>Gardener health</strong>
 <%= form_for([@group, @gardener, @gardener.build_health]) do |g| %>
 <fieldset>
 <div class="btn-group btn-group-justified">
@@ -52,7 +51,7 @@
       <%= g.radio_button :meals_with_veg, :six %> 
       <%= g.label :meals_with_veg_6, "6" %> <br/>
 
-      <h3> In general how would you say your health is? </h3> <br/>
+      <h4> In general how would you say your health is? </h4>
 
       <%= g.radio_button :health, :excellent %> 
       <%= g.label :health, "excellent" %> <br/>
@@ -76,21 +75,21 @@
        <%= g.radio_button :health, :very_poor %> 
        <%= g.label :health_very_poor, "Very Poor" %> <br/>
       
-      <h3> Do you have any of the following illnesses </h3>
+      <h4> Do you have any of the following illnesses: </h4>
 
-      <%= g.radio_button :illness, :diabetes %>
+      <%= g.check_box(:illness, {:multiple => true}, "Diabetes", nil) %>
       <%= g.label :illness_diabetes, "Diabetes" %> <br/>
 
-      <%= g.radio_button :illness, :cancer %>
+      <%= g.check_box(:illness, {:multiple => true}, "Cancer", nil) %>
       <%= g.label :illness_cancer, "Cancer" %> <br/>
 
-      <%= g.radio_button :illness, :arthritis %>
+       <%= g.check_box(:illness, {:multiple => true}, "Arthritis", nil) %>
       <%= g.label :illness_cancer, "Arthritis" %> <br/>
 
-      <%= g.radio_button :illness, :tb %>
+       <%= g.check_box(:illness, {:multiple => true}, "TB", nil) %>
       <%= g.label :illness_tb, "TB" %> <br/>
 
-      <%= g.radio_button :illness, :HIV_AIDS %>
+       <%= g.check_box(:illness, {:multiple => true}, "HIV/AIDS", nil) %>
       <%= g.label :illness_hiv_aids, "HIV/AIDS" %> <br/>
 
 

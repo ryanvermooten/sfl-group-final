@@ -1,16 +1,18 @@
 <div class="panel panel-default">
-<strong>Gardener Expenditure</strong>
 <%= form_for([@group, @gardener, @gardener.build_expenditure]) do |g| %>
 <fieldset>
 <div class="btn-group btn-group-justified">
+<h4> When you buy vegitables where do you usually buy them from? </h4> <br/>
       <%= g.radio_button :where, :stand_or_stall %>
       <%= g.label :where, "Stand or stall" %> <br/>
        <%= g.radio_button :where, :tuck_shop %> 
-      <%= g.label :where_tuck_shop, "Tuck shop" %><br/>
-       <%= g.radio_button :where, :friends_or_neighbours %> <br/>
-      <%= g.label :where_friends_or_neighbours, "Friends or neighbours" %>
-     <%= g.radio_button :where, :dont_buy %> <br/>
-      <%= g.label :where_dont_buy, "I don’t buy vegetables" %>
+      <%= g.label :where, "Tuck shop" %><br/>
+       <%= g.radio_button :where, :friends_or_neighbours %>
+      <%= g.label :where_friends_or_neighbours, "Friends or neighbours" %>  <br/>
+     <%= g.radio_button :where, :dont_buy %> 
+      <%= g.label :where_dont_buy, "I don’t buy vegetables" %> <br/>
+
+<h4> How Much do you usually spend on vegetables per month? </h4>
 
   <%= g.radio_button :amount, :none %> 
   <%= g.label :amount_none, "None" %> <br/>

@@ -3,33 +3,43 @@
 <%= form_for([@group, @gardener, @gardener.build_education]) do |g| %>
 <fieldset>
 <div class="btn-group btn-group-justified">
-<body> What are your education levels? </body>
-        <%= g.label :education_levels_not_sure, "Not sure" %>
-        <%= g.radio_button :education_levels, :not_sure %> <br/>
+<h3> What are your education levels? </h3> <br/>
 
-        <%= g.label :education_levels_none, "None" %>
-        <%= g.radio_button :education_levels, :none %> <br/>
+        <%= g.radio_button :level, :not_sure %>
+        <%= g.label :level_not_sure, "Not sure" %>
+         <br/>
 
-        <%= g.label :education_levels_gr_1_to_3, "Grade 1-3 (Sub A - Standard 1)" %>
-        <%= g.radio_button :education_levels, :gr_1_to_3 %> <br/>
+        <%= g.radio_button :level, :none %>
+        <%= g.label :level_none, "None" %>
+         <br/>
 
-        <%= g.label :education_levels_gr_4_to_7, "Grade 4-7 (Standard 2-5)" %>
-        <%= g.radio_button :education_levels, :gr_4_to_7 %> <br/>
+        <%= g.radio_button :level, :gr_1_to_3 %> 
+        <%= g.label :level_gr_1_to_3, "Grade 1-3 (Sub A - Standard 1)" %>
+        <br/>
 
-        <%= g.label :education_levels_gr_8_to_9, "Grade 8-9 (Standard 6-7)" %>
-        <%= g.radio_button :education_levels, :gr_8_to_9 %> <br/>
+        <%= g.radio_button :level, :gr_4_to_7 %>
+        <%= g.label :level_gr_4_to_7, "Grade 4-7 (Standard 2-5)" %>
+         <br/>
 
-        <%= g.label :education_levels_gr_9_to_10, "Grade 10-11 (Standard 8-9)" %>
-        <%= g.radio_button :education_levels, :gr_10_to_11 %> <br/>
+        <%= g.radio_button :level, :gr_8_to_9 %>
+        <%= g.label :level_gr_8_to_9, "Grade 8-9 (Standard 6-7)" %>
+        <br/>
 
-        <%= g.label :education_levels_high_school, "Completed High school" %>
-        <%= g.radio_button :education_levels, :some_tertiary %> <br/>
+        <%= g.radio_button :level, :gr_10_to_11 %>
+        <%= g.label :level_gr_9_to_10, "Grade 10-11 (Standard 8-9)" %>
+         <br/>
 
-        <%= g.label :education_levels_some_tertiary, "Some Tertiary Education" %>
-        <%= g.radio_button :education_levels, :some_tertiary %> <br/>
+         <%= g.radio_button :level, :some_tertiary %>
+        <%= g.label :level_high_school, "Completed High school" %>
+         <br/>
 
-        <%= g.label :education_levels_completed_tertiary, "Completed Tertiary Education" %>
-        <%= g.radio_button :education_levels, :completed_tertiary %> <br/>
+        <%= g.radio_button :level, :some_tertiary %>
+        <%= g.label :level_some_tertiary, "Some Tertiary Education" %>
+        <br/>
+
+        <%= g.radio_button :level, :completed_tertiary %> 
+        <%= g.label :level_completed_tertiary, "Completed Tertiary Education" %>
+        <br/>
 
 <div class="form-actions">
        <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>

@@ -1,11 +1,10 @@
 <div class="panel panel-default">
-<strong>Gardener Living Arrangements</strong>
 <%= form_for([@group, @gardener, @gardener.build_general_statement]) do |g| %>
 <fieldset>
 <div class="btn-group btn-group-justified">
-      <%= g.label :gardener, "Anything else you would like to add?"%>
+      <%= g.label :gardener, "Anything else you would like to add?"%><br/>
       <%= g.text_field :gardener %> <br/>
-      <%= g.label :trainer, "Anything else you as the trainer would like to add?"%>
+      <%= g.label :trainer, "Anything else you as the trainer would like to add?"%> <br/>
       <%= g.text_field :trainer %> <br/>
 
 <div class="form-actions">

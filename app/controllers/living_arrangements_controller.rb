@@ -23,25 +23,22 @@ end
  
 # POST /groups/:group_id/group_gardeners
 # POST /groups/:group_id/group_gardeners.xml
-  def create
+ def create
     #1st you retrieve the group thanks to params[:group_id]
   group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
   @gardener= group.gardeners.find(params[:gardener_id])
-    @gardener.build_living_arrangement(living_arrangement_params)
-    respond_to do |format|
-      if @gardener.save
-        #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
-      format.html {redirect_to([@gardener.group, @group], :notice => 'living arrangements info was sucessfully saved' )}
-      format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@gardener] }
+   @gardener.build_living_arrangement(living_arrangement_params)
+      if @gardener.save!
+        redirect_to new_group_gardener_sfl_path(group, @gardener)
+        #render "living_arrangements/new", id:@gardener 
+       
       else
-        format.html {render :action => "new"}
-        format.xml {render :xml => @gardener.errors, status: :unprocessable_entity}
-      end
-    end
+    render "new"
   end
- 
- 
+end
+end
+
   def update
     #1st you retrieve the group thanks to params[:group_id]
     group = Group.find(params[:group_id])
@@ -68,4 +65,3 @@ end
   def gardener_params
    params.require(:gardener).permit(:first_name, :last_name, :contact_number, :address, :group_id, :garden_at_home, :document, :id_number, :avatar)
   end
-end
