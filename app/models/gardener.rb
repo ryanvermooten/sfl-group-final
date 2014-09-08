@@ -16,7 +16,6 @@ class Gardener < ActiveRecord::Base
   has_one :general_statement
   has_one :previous_experience
   has_one :expenditure
-  has_one :support_visit
   has_one :follow_up_vist
   #has_many :documents
  # has_attached_file :avatar, :styles => {:thumb => "100x100>"}
