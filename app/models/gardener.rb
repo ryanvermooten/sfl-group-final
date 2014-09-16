@@ -3,6 +3,7 @@ class Gardener < ActiveRecord::Base
   has_many :attendance_registers_training_sessions
   has_many :attendance_registers, through: :attendance_registers_training_sessions
   has_many :support_visits
+  has_one :follow_up_visit
   has_one :garden
   has_one :living_arrangement
   has_one :sfl
@@ -16,7 +17,10 @@ class Gardener < ActiveRecord::Base
   has_one :general_statement
   has_one :previous_experience
   has_one :expenditure
-  has_one :follow_up_vist
+  has_one :follow_up_visit_garden
+  has_one :follow_up_visit_eating
+  has_one :follow_up_visit_selling
+  has_one :follow_up_visit_impression
   #has_many :documents
  # has_attached_file :avatar, :styles => {:thumb => "100x100>"}
  # validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

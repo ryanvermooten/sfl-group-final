@@ -23,6 +23,7 @@
         <td><%= link_to 'Edit', edit_group_gardener_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %></td>
         <%= link_to 'Begin Initial Questionnaire', new_group_gardener_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
         <%= link_to 'Record Support Visit', new_group_gardener_support_visit_path(@gardener.group, @gardener), class: "btn btn-sm btn-info" %>
+        <%= link_to 'Begin Follow Up Visit', new_group_gardener_follow_up_visit_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
       </tr>
   </tbody>
 </table>

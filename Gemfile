@@ -16,6 +16,7 @@ gem 'pundit'
 gem "paperclip-dropbox", ">= 1.1.7"
 gem "dropbox-api"
 gem 'newrelic_rpm'
+gem 'rails-perftest'
 group :development do
  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -32,4 +33,6 @@ group :test do
   gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'ruby-prof'
+  gem 'test-unit'
 end

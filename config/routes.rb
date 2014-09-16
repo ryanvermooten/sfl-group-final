@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       resources :experiences
       resources :expenditures
       resources :support_visits
+      resources :follow_up_visit_gardens
+      resources :follow_up_visit_eatings
+      resources :follow_up_visit_sellings
+      resources :follow_up_visit_impressions
   end
    resources :attendance_registers
   end

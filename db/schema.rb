@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908052346) do
+ActiveRecord::Schema.define(version: 20140911080121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,43 @@ ActiveRecord::Schema.define(version: 20140908052346) do
     t.boolean "currently_growing"
     t.string  "currently_growing_neg"
     t.string  "usage"
+    t.string  "selling_amount"
+  end
+
+  create_table "follow_up_visit_eatings", force: true do |t|
+    t.integer "gardener_id"
+    t.integer "eating_sum"
+    t.string  "veg_type_eaten"
+    t.boolean "eating"
+  end
+
+  create_table "follow_up_visit_gardens", force: true do |t|
+    t.integer "gardener_id"
+    t.boolean "still_gardening"
+    t.string  "rating"
+    t.boolean "mini_nursery"
+    t.boolean "compost_heap"
+    t.boolean "trench_bed"
+    t.integer "trench_bed_sum"
+    t.boolean "container_garden"
+    t.integer "container_garden_sum"
+    t.boolean "other"
+    t.string  "other_qualitative"
+  end
+
+  create_table "follow_up_visit_impressions", force: true do |t|
+    t.integer "gardener_id"
+    t.string  "future_plan"
+    t.text    "issue"
+    t.text    "positive"
+    t.text    "negative"
+    t.text    "general_comment"
+  end
+
+  create_table "follow_up_visit_sellings", force: true do |t|
+    t.integer "gardener_id"
+    t.boolean "selling"
+    t.string  "selling_what"
     t.string  "selling_amount"
   end
 
