@@ -24,6 +24,25 @@
     <p>
       <%= g.label :id_number %>
       <%= g.number_field :id_number %>
+      </p>
+
+      <p>
+      <%= g.label :race %> <br/>
+       <%= g.radio_button :race, :black %> 
+      <%= g.label :race_white, "Black" %> |
+
+     <%= g.radio_button :race, :coloured %> 
+     <%= g.label :race_coloured, "Coloured" %> <br/>
+
+     <%= g.radio_button :race, :indian %> 
+     <%= g.label :race_indian, "Indian" %> |
+
+      <%= g.radio_button :race, :white %> 
+      <%= g.label :race_white, "White" %> <br/>
+      
+       <%= g.radio_button :race, :other %> 
+      <%= g.label :race_other, "Other" %> <br/>
+
 
     <%= g.label :avatar, "please take a picture of the gardener" %>
     <%= g.file_field :avatar %>
