@@ -103,7 +103,7 @@ class GardenersController < ApplicationController
   private
 
   def gardener_params
-   params.require(:gardener).permit(:first_name, :last_name, :contact_number, :address, :group_id, :garden_at_home, :document, :id_number, :avatar)
+   params.require(:gardener).permit(:first_name, :race, :last_name, :contact_number, :address, :group_id, :garden_at_home, :document, :id_number, :avatar)
   end
 
   def group_params
