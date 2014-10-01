@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :phone_rentals
+
+  resources :extras
+
+  resources :phones
+
   resources :groups
 
   root to: 'visitors#index'

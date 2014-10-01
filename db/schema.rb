@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922135219) do
+ActiveRecord::Schema.define(version: 20141001110549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,11 @@ ActiveRecord::Schema.define(version: 20140922135219) do
     t.string  "currently_growing_neg"
     t.string  "usage"
     t.string  "selling_amount"
+  end
+
+  create_table "extras", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "follow_up_visit_eatings", force: true do |t|
@@ -205,6 +210,36 @@ ActiveRecord::Schema.define(version: 20140922135219) do
     t.integer "gardener_id"
     t.string  "marital_status"
     t.string  "number_of_people_in_household"
+  end
+
+  create_table "phone_rentals", force: true do |t|
+    t.integer  "phone_id"
+    t.integer  "user_id"
+    t.integer  "data"
+    t.boolean  "charger"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phones", force: true do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.string   "condition"
+    t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phones2s", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phones_rental", force: true do |t|
+    t.integer "phone_id"
+    t.integer "user_id"
+    t.integer "data"
+    t.boolean "charger"
   end
 
   create_table "sfls", force: true do |t|
