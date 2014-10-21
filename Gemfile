@@ -17,6 +17,8 @@ gem "paperclip-dropbox", ">= 1.1.7"
 gem "dropbox-api"
 gem 'newrelic_rpm'
 gem 'rails-perftest'
+gem 'oboe-heroku'
+
 group :development do
  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

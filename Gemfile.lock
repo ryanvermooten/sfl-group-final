@@ -102,6 +102,10 @@ GEM
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     oauth (0.4.7)
+    oboe (2.7.3.1)
+      json
+    oboe-heroku (0.9.16.1)
+      oboe (>= 2.7.2.2)
     orm_adapter (0.5.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
@@ -219,6 +223,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   newrelic_rpm
+  oboe-heroku
   paperclip-dropbox (>= 1.1.7)
   pg
   pundit
