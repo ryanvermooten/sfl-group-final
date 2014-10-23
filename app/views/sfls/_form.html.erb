@@ -1,5 +1,6 @@
 <div class="panel panel-default">
-<%= form_for([@group, @gardener, @gardener.build_sfl]) do |g| %>
+<%= form_for([@group, @gardener, @sfl]) do |g| %>
+<%= render "shared/error_messages", :target => @sfl %>
 <fieldset>
 <div class="btn-group btn-group-justified">
 <h4> how did you hear about Soil For Life? </h4> <br/>

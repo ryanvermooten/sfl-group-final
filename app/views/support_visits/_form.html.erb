@@ -1,5 +1,6 @@
 <div class="panel panel-default">
 <%= form_for([@group, @gardener, @gardener.support_visits.build]) do |g| %>
+<%= render "shared/error_messages", :target => @support_visit %>
 <fieldset>
 
 <p>

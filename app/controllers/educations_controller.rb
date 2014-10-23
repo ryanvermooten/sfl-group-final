@@ -1,37 +1,45 @@
 class EducationsController < ApplicationController
- 
+
 def new                                                   
   #1st you retrieve the group thanks to params[:group_id] 
   #2nd you build a new comment                            
   @group = Group.find(params[:group_id])                  
-  @gardener= Gardener.find(params[:gardener_id])          
+  @gardener= Gardener.find(params[:gardener_id])
+  @education= @gardener.build_education          
                                                           
   respond_to do |format|                                  
-    format.html #new.html.erb                             
-    format.xml {render :xml => @education}                   
+    format.html #new.html.erb                      
   end                                                     
 end                                                       
  
 # GET /groups/:group_id/gardeners/:id/edit
   def edit
     #1st you retrieve the group thanks to params[:group_id]
-    group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     #2nd you retrieve the comment thanks to params[:id]
     @gardener= group.gardeners.find(params[:gardener_id])
-    @gardener.build_education(education_params)
+    @education = @gardener.build_education
+    @gardener.build_education
   end
  
 # POST /groups/:group_id/group_gardeners
 # POST /groups/:group_id/group_gardeners.xml
   def create
- group = Group.find(params[:group_id])
+    #1st you retrieve the group thanks to params[:group_id]
+  @group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
-  @gardener= group.gardeners.find(params[:gardener_id])
-   @gardener.build_education(education_params)
-      if @gardener.save!
-        redirect_to new_group_gardener_grant_path(group, @gardener)
-        #render "sfls/new", id:@gardener 
-      end
+  @gardener= @group.gardeners.find(params[:gardener_id])
+  @education = @gardener.build_education education_params
+
+      if @education.save
+        redirect_to new_group_gardener_employment_path(@group, @gardener)
+        #render "educations/new", id:@gardener 
+      else
+    render "edit"
+  end
+        #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
+     # format.html {redirect_to([@gardener.group, @educations], :notice => 'Garden info was sucessfully saved' )}
+      #format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@educations] }
     end
   end
  
@@ -42,9 +50,9 @@ end
     @gardener = group.gardeners.find(params[:id])
  
     respond_to do |format|
-      if @gardener.update_attributes(education_params)
+      if @gardener.update_attributes(gardener_params)
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
-     format.html {redirect_to([@gardener.group, @gardener], :notice => 'what what was successfully updated')}
+     format.html {redirect_to([@gardener.group, @gardener], :notice => 'Garden was successfully updated')}
      format.xml { head :ok}
       else
         format.html {render :action => "edit"}
@@ -54,7 +62,6 @@ end
   end
   
   private
- 
   def education_params
     params.require(:education).permit(:gardener_id, :level)
   end

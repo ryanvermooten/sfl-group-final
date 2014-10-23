@@ -1,6 +1,9 @@
 <div class="panel panel-default">
 <strong>Gardener Education</strong>
-<%= form_for([@group, @gardener, @gardener.build_education]) do |g| %>
+<%= form_for([@group, @gardener, @education]) do |g| %>
+
+<%= render "shared/error_messages", :target => @education %>
+
 <fieldset>
 <div class="btn-group btn-group-justified">
 <h3> What are your education levels? </h3> <br/>

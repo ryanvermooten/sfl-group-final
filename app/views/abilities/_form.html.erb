@@ -1,5 +1,6 @@
 <div class="panel panel-default">
-<%= form_for([@group, @gardener, @gardener.build_ability]) do |g| %>
+<%= form_for([@group, @gardener, @ability]) do |g| %>
+<%= render "shared/error_messages", :target => @ability %>
 <fieldset>
 <div class="btn-group btn-group-justified">
       <%= g.label :water_access, "How do you access water?" %> <br/>

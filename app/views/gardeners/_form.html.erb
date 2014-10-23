@@ -1,6 +1,7 @@
 <div class="panel panel-default">
 <strong>Add a Home Gardener</strong>
 <%= form_for([@gardener.group, @gardener]) do |g| %>
+<%= render "shared/error_messages", :target => @gardener %>
 <fieldset>
 
       <%= g.label :first_name %> 

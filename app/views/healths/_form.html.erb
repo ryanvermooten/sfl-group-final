@@ -1,7 +1,9 @@
 <div class="panel panel-default">
 <%= form_for([@group, @gardener, @gardener.build_health]) do |g| %>
+<%= render "shared/error_messages", :target => @healths %>
 <fieldset>
 <div class="btn-group btn-group-justified">
+
          
       <%= g.label :meals, "How many meals in an average day do you eat" %> <br/>
       

@@ -1,8 +1,12 @@
 <div class="panel panel-default">
-<%= form_for([@group, @gardener, @gardener.build_expenditure]) do |g| %>
+<%= form_for([@group, @gardener, @expenditure]) do |g| %>
+<%= render "shared/error_messages", :target => @expenditure %>
+
 <fieldset>
 <div class="btn-group btn-group-justified">
 <h4> When you buy vegitables where do you usually buy them from? </h4> <br/>
+  <%= g.radio_button :where, :shop_or_supermarket %>
+      <%= g.label :where, "Shop or Supermarket" %> <br/>
       <%= g.radio_button :where, :stand_or_stall %>
       <%= g.label :where, "Stand or stall" %> <br/>
        <%= g.radio_button :where, :tuck_shop %> 

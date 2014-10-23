@@ -1,6 +1,7 @@
 <div class="panel panel-default">
 <strong>Gardener Living Arrangements</strong>
-<%= form_for([@group, @gardener, @gardener.build_living_arrangement]) do |g| %>
+<%= form_for([@group, @gardener, @living_arrangement]) do |g| %>
+<%= render "shared/error_messages", :target => @living_arrangement %>
 <fieldset>
 <div class="btn-group btn-group-justified">
       <%= g.radio_button :marital_status, :single %> 

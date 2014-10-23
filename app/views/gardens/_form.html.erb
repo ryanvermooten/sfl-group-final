@@ -1,10 +1,11 @@
 <div class="panel panel-default">
 <strong>Add a Home Garden</strong>
-<%= form_for([@group, @gardener, @gardener.build_garden]) do |g| %>
-<fieldset>
+<%= form_for([@group, @gardener, @garden]) do |g| %>
 
-      <%= g.label :is_the_garden_located_at_home? %> 
-      <%= g.check_box :garden_located_at_home %>
+<%= render "shared/error_messages", :target => @garden %>
+
+      <%= g.label :garden_at_home, "is the garden located at home?" %> 
+      <%= g.check_box :garden_at_home %>
     </p>
 
     <p>

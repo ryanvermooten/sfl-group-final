@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001110549) do
+ActiveRecord::Schema.define(version: 20141019154534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,13 +61,6 @@ ActiveRecord::Schema.define(version: 20141001110549) do
   create_table "educations", force: true do |t|
     t.integer "gardener_id"
     t.string  "level"
-  end
-
-  create_table "employements", force: true do |t|
-    t.integer "gardener_id"
-    t.boolean "employed"
-    t.string  "type"
-    t.string  "earning_power"
   end
 
   create_table "employments", force: true do |t|
@@ -163,7 +156,6 @@ ActiveRecord::Schema.define(version: 20141001110549) do
     t.string   "garden_location"
     t.integer  "garden_l"
     t.integer  "garden_w"
-    t.boolean  "garden_located_at_home"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

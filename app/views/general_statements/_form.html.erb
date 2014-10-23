@@ -1,5 +1,6 @@
 <div class="panel panel-default">
 <%= form_for([@group, @gardener, @gardener.build_general_statement]) do |g| %>
+<%= render "shared/error_messages", :target => @general_statement %>
 <fieldset>
 <div class="btn-group btn-group-justified">
       <%= g.label :gardener, "Anything else you would like to add?"%><br/>
