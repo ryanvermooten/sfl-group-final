@@ -12,6 +12,7 @@ class Garden <ActiveRecord::Base
 }
 #validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 validates :garden_location, length: {minimum: 1, too_short: "You have indicated that the garden is not located at home, so please give address of garden"}, unless: :garden_at_home?
+validates :garden_location, :presence => false if :garden_at_home?
 validates :garden_l, length: {minimum: 1, too_short: "you must record the lenght of the garden"}, numericality: { only_integer: true }
 validates :garden_w, length: {minimum: 1, too_short: "you must record the lenght of the garden"}, numericality: { only_integer: true }
 

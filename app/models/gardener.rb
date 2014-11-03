@@ -34,6 +34,15 @@ class Gardener < ActiveRecord::Base
 	:unique_filename => true   
 }
 validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+validates :first_name, length: {minimum: 2, too_short: "First name needs at least 2 characters"}
+validates :last_name , length: {minimum: 2, too_short: "Last name needs at least 2 characters"}
+validates :contact_number, length: {minimum: 9, too_short: "Contact numbers need to have 10 characters", maximum: 11, too_long: "Contact numbers need to have 10 characters" }
+validates :address , length: {minimum: 4, too_short: "Address needs at least 4 characters"}
+validates :id_number, :length => { :is => 13, 
+    :too_short => "must have at least %{count} words",
+    :too_long  => "must have at most %{count} words"},
+    :uniqueness => true
+validates :race, :presence => true
 end
  
   #mount_uploader :image, ImageUploader

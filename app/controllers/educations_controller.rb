@@ -5,7 +5,7 @@ def new
   #2nd you build a new comment                            
   @group = Group.find(params[:group_id])                  
   @gardener= Gardener.find(params[:gardener_id])
-  @education= @gardener.build_education          
+  @education= @gardener.build_education   
                                                           
   respond_to do |format|                                  
     format.html #new.html.erb                      
@@ -19,7 +19,7 @@ end
     #2nd you retrieve the comment thanks to params[:id]
     @gardener= group.gardeners.find(params[:gardener_id])
     @education = @gardener.build_education
-    @gardener.build_education
+    @gardener.build_education education_params
   end
  
 # POST /groups/:group_id/group_gardeners
@@ -62,6 +62,7 @@ end
   end
   
   private
+  
   def education_params
     params.require(:education).permit(:gardener_id, :level)
   end

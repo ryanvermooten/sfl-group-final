@@ -1,3 +1,6 @@
+ # add custom validators path
+  
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -9,7 +12,6 @@ Bundler.require(*Rails.groups)
 module RailsDevisePundit
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib)
-
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -20,6 +22,7 @@ module RailsDevisePundit
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
