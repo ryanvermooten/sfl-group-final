@@ -19,6 +19,7 @@ gem 'newrelic_rpm'
 gem 'rails-perftest'
 gem 'dynamic_form'
 gem 'oboe-heroku'
+gem 'simple_form'
 group :development do
  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
