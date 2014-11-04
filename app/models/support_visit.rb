@@ -10,5 +10,6 @@ class SupportVisit <ActiveRecord::Base
 	:unique_filename => true   
 }
 validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+validates :notes, length: {minimum: 1, too_short: "Please make some form of note for this support visit"}
  
 end

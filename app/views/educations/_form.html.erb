@@ -1,15 +1,13 @@
 <div class="panel panel-default">
-<strong>Gardener Education</strong>
 <%= form_for([@group, @gardener, @education]) do |g| %>
-
 <%= render "shared/error_messages", :target => @education %>
+    <p>
+      <%= g.label :level, "What are your education levels" %> 
+    </p>
 
-<fieldset>
-<div class="btn-group btn-group-justified">
-<h3> What are your education levels? </h3> <br/>
-
-        <%= g.radio_button :level, :not_sure %>
-        <%= g.label :level_not_sure, "Not sure" %>
+    <p>
+    <%= g.radio_button :level, :not_sure %>
+    <%= g.label :level_not_sure, "Not sure" %>
          <br/>
 
         <%= g.radio_button :level, :none %>
@@ -43,9 +41,8 @@
         <%= g.radio_button :level, :completed_tertiary %> 
         <%= g.label :level_completed_tertiary, "Completed Tertiary Education" %>
         <br/>
-
-<div class="form-actions">
+        </p>
        <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+       </div>
 <% end %>
-</div>
-</fieldset>
+

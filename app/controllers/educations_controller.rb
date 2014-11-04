@@ -19,7 +19,7 @@ end
     #2nd you retrieve the comment thanks to params[:id]
     @gardener= group.gardeners.find(params[:gardener_id])
     @education = @gardener.build_education
-    @gardener.build_education education_params
+    @gardener.build_education
   end
  
 # POST /groups/:group_id/group_gardeners

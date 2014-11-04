@@ -4,8 +4,9 @@ def new
   #1st you retrieve the group thanks to params[:group_id] 
   #2nd you build a new comment                            
   @group = Group.find(params[:group_id])                  
-  @gardener= Gardener.find(params[:gardener_id])          
-                                                          
+  @gardener= Gardener.find(params[:gardener_id])
+  @support_visit= @gardener.support_visits.build       
+                                                        
   respond_to do |format|                                  
     format.html #new.html.erb                             
     format.xml {render :xml => @support_visit}                   
@@ -25,14 +26,16 @@ end
 # POST /groups/:group_id/group_gardeners.xml
  def create
     #1st you retrieve the group thanks to params[:group_id]
-  group = Group.find(params[:group_id])
+  @group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
-  @gardener= group.gardeners.find(params[:gardener_id])
-   @gardener.support_visits.build(support_visit_params)
+  @gardener= @group.gardeners.find(params[:gardener_id])
+  @support_visit= @gardener.support_visits.build support_visit_params
+
         respond_to do |format|
       if @gardener.save
+
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
-      format.html {redirect_to([@gardener.group, @group], :notice => 'Support visit completed successfully' )}
+      format.html {redirect_to groups_path([@group], :notice => 'Support visit completed successfully' )}
       format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@gardener] }
       else
         format.html {render :action => "new"}
