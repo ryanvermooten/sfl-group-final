@@ -19,7 +19,7 @@ end
     group = Group.find(params[:group_id])
     #2nd you retrieve the comment thanks to params[:id]
     @gardener= group.gardeners.find(params[:gardener_id])
-    @gardener.build_support_visit(support_visit_params)
+    @gardener.support_visits.build(support_visit_params)
   end
  
 # POST /groups/:group_id/group_gardeners
@@ -29,7 +29,8 @@ end
   @group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
   @gardener= @group.gardeners.find(params[:gardener_id])
-  @support_visit= @gardener.support_visits.build support_visit_params
+  @gardener.support_visits.build(support_visit_params)
+  #@support_visit= @gardener.support_visits.build support_visit_params
 
       if @gardener.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
