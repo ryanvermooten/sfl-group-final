@@ -33,13 +33,12 @@ end
 
         respond_to do |format|
       if @gardener.save
-
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
       format.html {redirect_to groups_path([@group], :notice => 'Support visit completed successfully' )}
-      format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@gardener] }
+     # format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@gardener] }
       else
         format.html {render :action => "new"}
-        format.xml {render :xml => @gardener.errors, status: :unprocessable_entity}
+        #format.xml {render :xml => @gardener.errors, status: :unprocessable_entity}
       end
     end
   end
