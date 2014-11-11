@@ -20,6 +20,9 @@ gem 'rails-perftest'
 gem 'dynamic_form'
 gem 'oboe-heroku'
 gem 'simple_form'
+gem 'activeadmin', github: 'activeadmin'
+gem 'groupdate'
+gem 'chartkick'
 group :development do
  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

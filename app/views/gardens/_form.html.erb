@@ -1,34 +1,37 @@
-<div class="panel panel-default">
-<strong>Add a Home Garden</strong>
+
 <%= form_for([@group, @gardener, @garden]) do |g| %>
+<div class="panel panel-default">
 
 <%= render "shared/error_messages", :target => @garden %>
-
-      <%= g.label :garden_at_home, "is the garden located at home?" %> 
+  
+      <div class="field">
+      <h4> 1.) Is the garden located at home?</h4>
       <%= g.check_box :garden_at_home %>
-    </p>
+    </div>
 
-    <p>
-      <%= g.label :garden_location %> 
+    <div class="field">
+    <h4> 2.) If the garden is not located at home, what is the address of the garden? </h4>
       <%= g.text_field :garden_location %>
-    </p>
+    </div>
 
-    <p>
-      <%= g.label :garden_width %> 
+    <div class="field">
+    <h4> What is the width of the garden? </h4>
       <%= g.text_field :garden_w %>
-    </p>
+    </div>
 
-    <p>
-      <%= g.label :garden_length %>
+    <div class="field">
+    <h4> What is the length of the garden? </h4>
       <%= g.text_field :garden_l %>
-    </p>
-    <p>
-    <%= g.label :avatar, "please take a picture of the garden" %>
-    <%= g.file_field :avatar %>
-    </p>
+    </div>
 
-<div class="form-actions">
+    <div class="field">
+    <h4> Please attach picture of the gardener's garden. </h4>
+    <h6> **If you are struggling to attach photo please whatsapp the photo to Ryan** </h6>
+    <%= g.file_field :avatar %>
+    </div>
+
+  <div class="form-actions">
        <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
-<% end %>
+  </div>
 </div>
-</fieldset>
+<% end %>

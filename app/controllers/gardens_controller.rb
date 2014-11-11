@@ -5,7 +5,7 @@ def new
   #2nd you build a new comment                            
   @group = Group.find(params[:group_id])                  
   @gardener= Gardener.find(params[:gardener_id])
-  @garden= @gardener.build_garden          
+  @garden= Garden.new       
                                                           
   respond_to do |format|                                  
     format.html #new.html.erb                      

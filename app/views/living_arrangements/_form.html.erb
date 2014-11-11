@@ -1,9 +1,10 @@
-<div class="panel panel-default">
-<strong>Gardener Living Arrangements</strong>
 <%= form_for([@group, @gardener, @living_arrangement]) do |g| %>
+<div class="panel panel-default">
+
 <%= render "shared/error_messages", :target => @living_arrangement %>
-<fieldset>
-<div class="btn-group btn-group-justified">
+
+  <div class="btn-group btn-group-justified">
+      <h4> 1.) What is your maritial status?</h4>
       <%= g.radio_button :marital_status, :single %> 
       <%= g.label :maritial_status_single, "Single" %><br/>
       
@@ -14,8 +15,7 @@
       <%= g.label :maritial_status_seperated, "Seperated" %> <br/>
       
       <%= g.radio_button :marital_status, :living_together_like_a_married_couple %>
-      <%= g.label :maritial_status_living_together_like_a_married_couple, "Living Together Like A Married Couple" %>
-      <br/>
+      <%= g.label :maritial_status_living_together_like_a_married_couple, "Living Together Like A Married Couple" %><br/>
      
      <%= g.radio_button :marital_status, :divorced %>
       <%= g.label :maritial_status_divorced, "Divorced" %>
@@ -23,16 +23,17 @@
 
       <%= g.radio_button :marital_status, :widowed %> 
       <%= g.label :maritial_status_seperated, "Widowed" %>
-      <br/>
-
-       <p>
+  </div>
       
-      <%= g.label :number_of_people_in_household %> 
+  <div class="field">
+  <h4> 2.) How many people live in your household? </h4> <br/>
       <%= g.text_field :number_of_people_in_household %>
-    </p>
+  </div>
 
-<div class="form-actions">
-       <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
-<% end %>
+  <div class="form-actions">
+      <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+  </div>
+
 </div>
-</fieldset>
+<% end %>
+

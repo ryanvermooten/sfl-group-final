@@ -5,7 +5,7 @@ def new
   #2nd you build a new comment                            
   @group = Group.find(params[:group_id])                  
   @gardener= Gardener.find(params[:gardener_id])
-  @living_arrangement= @gardener.build_living_arrangement          
+  @living_arrangement= LivingArrangement.new          
                                                           
   respond_to do |format|                                  
     format.html #new.html.erb                      
@@ -31,7 +31,7 @@ end
   @gardener= @group.gardeners.find(params[:gardener_id])
   @living_arrangement = @gardener.build_living_arrangement living_arrangement_params
 
-      if @living_arrangement.save
+    if @living_arrangement.save
         redirect_to new_group_gardener_sfl_path(@group, @gardener)
         #render "living_arrangements/new", id:@gardener 
       else

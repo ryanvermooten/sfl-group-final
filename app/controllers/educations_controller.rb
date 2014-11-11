@@ -5,7 +5,7 @@ def new
   #2nd you build a new comment                            
   @group = Group.find(params[:group_id])                  
   @gardener= Gardener.find(params[:gardener_id])
-  @education= @gardener.build_education   
+  @education= Education.new
                                                           
   respond_to do |format|                                  
     format.html #new.html.erb                      
@@ -28,7 +28,7 @@ end
     #1st you retrieve the group thanks to params[:group_id]
   @group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
-  @gardener= @group.gardeners.find(params[:gardener_id])
+  @gardener = @group.gardeners.find(params[:gardener_id])
   @education = @gardener.build_education education_params
 
       if @education.save

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :phone_rentals
 
   resources :extras
@@ -19,7 +21,6 @@ Rails.application.routes.draw do
       resources :employments
       resources :grants
       resources :abilities
-      resources :expenses
       resources :healths
       resources :general_statements
       resources :experiences
@@ -31,7 +32,11 @@ Rails.application.routes.draw do
       resources :follow_up_visit_impressions
   end
    resources :attendance_registers
+   resources :admin do
+    resources :metrics
   end
+  end
+
 end
 
   #get '/dropbox/authorize', to: 'dropbox#authorize', :as => :dropbox_auth
