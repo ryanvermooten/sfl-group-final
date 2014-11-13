@@ -4,7 +4,6 @@
 <fieldset>
 <p>
     <div class="control-group">
-    <%= debug @attendance_register %>
       <%= register.label :training_session_id %><br />
       <div class="controls">
       <%= register.collection_select :training_session_id, TrainingSession.order("id ASC"), :id, :name %>
