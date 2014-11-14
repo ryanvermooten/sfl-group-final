@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  #before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /groups
@@ -11,6 +11,8 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group = Group.includes(:gardeners).where(id: params[:id]).first!
+   
   end
 
   # GET /groups/new
@@ -42,6 +44,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
   def update
+    @group = Group.find(params[:id])
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
@@ -56,6 +59,7 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
+    @group = Group.find(params[:id])
     @group.destroy
     respond_to do |format|
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
@@ -65,9 +69,6 @@ class GroupsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params

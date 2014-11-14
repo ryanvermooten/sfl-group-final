@@ -4,7 +4,7 @@ class AttendanceRegistersController < ApplicationController
 # GET /groups/:group_id/gardeners/new.xml
 
 def new
-   @group = Group.find(params[:group_id])                  
+   @group = Group.includes(:gardeners).where(id: params[:group_id]).first!       
   @gardeners= @group.gardeners
   @attendance_register = @group.attendance_registers.build
     #1st you retrieve the group thanks to params[:group_id]

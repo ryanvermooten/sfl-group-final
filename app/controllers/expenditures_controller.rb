@@ -1,4 +1,5 @@
-class ExpendituresController < ApplicationController        
+class ExpendituresController < ApplicationController      
+  
    def new                                              
         
   #1st you retrieve the group thanks to params[:group_id] 
@@ -8,7 +9,7 @@ class ExpendituresController < ApplicationController
   @expenditure= @gardener.build_expenditure          
                                                           
   respond_to do |format|                                  
-    format.html #new.html.erb                      
+    format.html #new.html.erb                       
   end                                                     
 end                                                       
  

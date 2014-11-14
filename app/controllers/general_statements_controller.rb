@@ -4,7 +4,8 @@ def new
   #1st you retrieve the group thanks to params[:group_id] 
   #2nd you build a new comment                            
   @group = Group.find(params[:group_id])                  
-  @gardener= Gardener.find(params[:gardener_id])          
+  @gardener= Gardener.find(params[:gardener_id])   
+  @general_statement= GeneralStatement.new       
                                                           
   respond_to do |format|                                  
     format.html #new.html.erb                             
@@ -28,9 +29,9 @@ end
   group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
   @gardener= group.gardeners.find(params[:gardener_id])
-    @gardener.build_general_statement(general_statement_params)
+    @general_statement = @gardener.build_general_statement general_statement_params
     respond_to do |format|
-      if @gardener.save
+      if @general_statement.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
       format.html {redirect_to([@gardener.group, @group], :notice => 'Initial Questionaire completed successfully' )}
       format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@gardener] }
@@ -62,7 +63,7 @@ end
   private
  
   def general_statement_params
-    params.require(:general_statement).permit(:gardener_id, :marital_status, :number_of_people_in_household)
+    params.require(:general_statement).permit(:gardener_id, :gardener, :trainer)
   end
  
   def gardener_params
