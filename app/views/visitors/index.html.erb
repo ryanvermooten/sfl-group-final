@@ -133,11 +133,13 @@ h3,h4,h5 {
         </style>
     <style type="text/css"></style></head>
 
+
 <div class="alert alert-info alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-              <strong>Heads up!</strong> Currently there is an issue with the last question on the intial questionaire. You can still do all the questions up to the last one, on the last question it will give error message, but that is fine.All is still recorded up to that point.
+              <strong>Heads up!</strong> No issues noticed.
           </div>
              <style type="text/css"></style></head>
+
 
 <div class="alert alert-info alert-warning">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -147,21 +149,33 @@ h3,h4,h5 {
     	<div class="panel panel-default">
            <div class="panel-heading"> <h4>Status of Forms</h4>
             <h6> This is just here to indicate if forms are working or not</div>
+            <%if false %>
+            This is an error. 
             <div class="alert alert-warning" role="alert">
   <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   <span class="sr-only">Error:</span>
   Initial Questionaires
-</div>
+    </div>
+    <% end %>
+    
           <div class="alert alert-success" role="alert">
-  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-  <span class="sr-only">OK:</span>
-  Gardeners
-</div>
-    <div class="alert alert-success" role="alert">
   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
   <span class="sr-only">OK:</span>
   Groups
 </div>
+
+    <div class="alert alert-success" role="alert">
+  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  <span class="sr-only">OK:</span>
+   Gardeners
+</div>
+   
+    <div class="alert alert-success" role="alert">
+  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+  <span class="sr-only">OK:</span>
+   Initial Questionaires
+  </div>
+
    <div class="alert alert-success" role="alert">
   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
   <span class="sr-only">OK:</span>

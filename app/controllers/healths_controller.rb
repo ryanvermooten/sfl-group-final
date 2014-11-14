@@ -30,17 +30,18 @@ end
     #2nd you create the trainer wih arguments in params [:gardener]
   @gardener= @group.gardeners.find(params[:gardener_id])
   @health = @gardener.build_health health_params
-
+         respond_to do |format|
       if @health.save
-         redirect_to new_group_gardener_general_statement_path(@group, @gardener)
+         format.html { redirect_to @group, notice: 'Initial Questionaire successfully Completed.' }
         #render "living_arrangements/new", id:@gardener 
-      else
-    render "edit"
-  end
+        else
+          render "edit"
+  
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
      # format.html {redirect_to([@gardener.group, @living_arrangements], :notice => 'Garden info was sucessfully saved' )}
       #format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@living_arrangements] }
-    end
+        end
+      end
   end
  
  
@@ -70,4 +71,5 @@ end
  
   def gardener_params
    params.require(:gardener).permit(:first_name, :last_name, :contact_number, :address, :group_id, :garden_at_home, :document, :id_number, :avatar)
+end
 end
