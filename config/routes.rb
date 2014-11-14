@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :groups
 
+  resources :troubleshoots
+
   root to: 'visitors#index'
   devise_for :users
   resources :users
