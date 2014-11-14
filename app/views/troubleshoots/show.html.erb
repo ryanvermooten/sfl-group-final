@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @troubleshoot.user_id %>
+</p>
+
+<p>
+  <strong>Issue:</strong>
+  <%= @troubleshoot.issue %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @troubleshoot.datetime %>
+</p>
+
+<%= link_to 'Edit', edit_troubleshoot_path(@troubleshoot) %> |
+<%= link_to 'Back', troubleshoots_path %>
