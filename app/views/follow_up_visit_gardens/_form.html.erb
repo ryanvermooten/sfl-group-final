@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 <strong>Add a Home Garden</strong>
-<%= form_for([@group, @gardener, @gardener.build_follow_up_visit_garden]) do |g| %>
+<%= form_for([@group, @gardener, @follow_up_visit_garden]) do |g| %>
 <fieldset>
 
       <%= g.label :still_gardening?, "Is the gardener still gardening?" %> <br/>
@@ -35,7 +35,7 @@
 
      <p>
       <%= g.label :trench_bed_sum, "How many trench beds does the gardener have?" %> <br/>
-      <%= g.number_field :trench_bed%> 
+      <%= g.number_field :trench_bed_sum %> 
     </p>
     
 

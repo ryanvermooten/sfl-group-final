@@ -14,10 +14,10 @@ class Gardener < ActiveRecord::Base
   has_one :health
   has_one :general_statement
   has_one :expenditure
-  has_many :follow_up_visit_gardens
-  has_many :follow_up_visit_eatings
-  has_many :follow_up_visit_sellings
-  has_many :follow_up_visit_impressions
+  has_one :follow_up_visit_garden
+  has_one :follow_up_visit_eating
+  has_one :follow_up_visit_selling
+  has_one :follow_up_visit_impression
   #has_many :documents
  # has_attached_file :avatar, :styles => {:thumb => "100x100>"}
  # validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

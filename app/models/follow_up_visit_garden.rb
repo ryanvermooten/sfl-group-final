@@ -1,3 +1,3 @@
 class FollowUpVisitGarden <ActiveRecord::Base
-	belongs_to :gardener
+	belongs_to :gardener, validate: false
 end
