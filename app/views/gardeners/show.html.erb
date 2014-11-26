@@ -8,6 +8,8 @@
     <th> First Name </th>
     <th> Address</th>
     <th> Contact Number</th>
+    <th> number of Support Visits </th>
+
 
   </tr>
   </thead>
@@ -19,11 +21,16 @@
         <td><%= @gardener.first_name %></td>
         <td><%= @gardener.address %></td>
         <td><%= @gardener.contact_number %></td>
+        <td><%= @gardener.support_visits.count %> </td>
 
         <td><%= link_to 'Edit', edit_group_gardener_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %></td>
-        <%= link_to 'Begin Initial Questionnaire', new_group_gardener_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
+        <% if @gardener.garden.nil? %>
+          <%= link_to 'Begin Initial Questionnaire', new_group_gardener_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
+        <% end %>
         <%= link_to 'Record Support Visit', new_group_gardener_support_visit_path(@gardener.group, @gardener), class: "btn btn-sm btn-info" %>
-        <%= link_to 'Begin Follow Up Visit', new_group_gardener_follow_up_visit_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
+        <% if @gardener.follow_up_visit_garden.nil? %>
+          <%= link_to 'Begin Follow Up Visit', new_group_gardener_follow_up_visit_garden_path(@gardener.group, @gardener), class: "btn btn-sm btn-success" %>
+        <% end %>
       </tr>
   </tbody>
 </table>
