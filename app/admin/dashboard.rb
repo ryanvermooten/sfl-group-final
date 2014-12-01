@@ -9,6 +9,13 @@ ActiveAdmin.register_page "Dashboard" do
         small I18n.t("active_admin.dashboard_welcome.call_to_action")
       end
     end
+    section "Recently added groups" do
+    table_for Group.order("created_at desc").limit(5) do
+        column :group_name do |group|
+            link_to group.group_name, admin_group_path(group)
+        end
+    end
+end
 section "Recently added gardeners" do
     table_for Gardener.order("created_at desc").limit(5) do
         column :first_name do |gardener|
@@ -16,6 +23,8 @@ section "Recently added gardeners" do
         end
         column :last_name
         column :created_at
+
+
     # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do

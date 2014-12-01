@@ -2,26 +2,26 @@ class Gardener < ActiveRecord::Base
   belongs_to :group
   has_many :attendance_registers_training_sessions
   has_many :attendance_registers, through: :attendance_registers_training_sessions
-  has_many :support_visits
-  has_one :garden
-  has_one :living_arrangement
-  has_one :sfl
-  has_one :education
-  has_one :employment
-  has_one :grant
-  has_one :ability
-  has_one :experience
-  has_one :health
-  has_one :general_statement
-  has_one :expenditure
-  has_one :follow_up_visit_garden
-  has_one :follow_up_visit_eating
-  has_one :follow_up_visit_selling
-  has_one :follow_up_visit_impression
+  has_many :support_visits, dependent: :destroy
+  has_one :garden, dependent: :destroy
+  has_one :living_arrangement, dependent: :destroy
+  has_one :sfl, dependent: :destroy
+  has_one :education, dependent: :destroy
+  has_one :employment, dependent: :destroy
+  has_one :grant, dependent: :destroy
+  has_one :ability, dependent: :destroy 
+  has_one :experience, dependent: :destroy
+  has_one :health, dependent: :destroy
+  has_one :general_statement, dependent: :destroy
+  has_one :expenditure, dependent: :destroy
+  has_one :follow_up_visit_garden, dependent: :destroy
+  has_one :follow_up_visit_eating, dependent: :destroy
+  has_one :follow_up_visit_selling, dependent: :destroy
+  has_one :follow_up_visit_impression, dependent: :destroy
   #has_many :documents
  # has_attached_file :avatar, :styles => {:thumb => "100x100>"}
  # validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  has_attached_file :avatar,
+  has_attached_file :avatar, dependent: :destroy,
 	:storage => :dropbox,
 	:dropbox_credentials => "#{Rails.root}/config/dropbox.yml",
 	:styles => { :medium => "300x300>", :thumb => "100x100>" },

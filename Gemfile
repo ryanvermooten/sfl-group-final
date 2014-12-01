@@ -26,6 +26,8 @@ gem 'chartkick'
 gem 'puma'
 gem 'jquery-turbolinks'
 gem 'rails_12factor'
+gem 'ruby-progressbar'
+gem 'ransack'
 group :development do
  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -38,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails'
 end
 group :test do
+  gem 'guard-rspec'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'faker'

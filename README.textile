@@ -1,5 +1,26 @@
 TODO:
 
+Support visits:
+	During training:
+		Once a month - for first 3 months.
+
+	After training:
+		Depending on when trained
+			If trainied in the last year, should attempt to be seen 2 times but realistically twice in 3 month period. 4 times a year
+
+			If trained between one and two years ago, two times in that 3 month period. 4 times
+
+			If trained between two and four years ago, one visit in 3 month period. 2 Visits a year.
+
+
+Follow Up visits:
+
+needs to happen once per cycle. Two cyles in a year.
+
+
+
+
+
 CHECK VALIDATIONS FOR:
 
 Grant
