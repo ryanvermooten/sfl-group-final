@@ -1,5 +1,8 @@
 class Gardener < ActiveRecord::Base
   belongs_to :group
+  has_many :answers
+  #has_and_belongs_to_many :questionnaires, join_table: 'gardener_questionnaires'
+  #has_many :answers, through: :gardener_questionnaires
   has_many :attendance_registers_training_sessions
   has_many :attendance_registers, through: :attendance_registers_training_sessions
   has_many :support_visits, dependent: :destroy

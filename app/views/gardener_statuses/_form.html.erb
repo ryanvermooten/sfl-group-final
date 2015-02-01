@@ -1,0 +1,12 @@
+<%= simple_form_for(@gardener_status) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :gardener_id %>
+    <%= f.input :status_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<h1>Listing gardener_statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gardener</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gardener_statuses.each do |gardener_status| %>
+      <tr>
+        <td><%= gardener_status.gardener_id %></td>
+        <td><%= gardener_status.status_id %></td>
+        <td><%= link_to 'Show', gardener_status %></td>
+        <td><%= link_to 'Edit', edit_gardener_status_path(gardener_status) %></td>
+        <td><%= link_to 'Destroy', gardener_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gardener status', new_gardener_status_path %>

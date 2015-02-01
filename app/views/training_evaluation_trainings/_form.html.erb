@@ -1,0 +1,72 @@
+<% javascript 'dynamic_groups' %>
+<%= form_for([@training_evaluation, @training_evaluation_training]) do |g| %>
+
+<div class="panel panel-default">
+
+<%= render "shared/error_messages", :target => @training_evaluation_training %>
+  
+      <div class="field">
+      <h4> 1.) Overall I thought the training was good</h4>
+      <%= g.radio_button :good, :strongly_agree %>
+      <%= g.label :good, "Strongly Agree" %> <br/>
+      <%= g.radio_button :good, :no_opinion %>
+      <%= g.label :good, "No opinion" %> <br/>
+      <%= g.radio_button :good, :disagree %>
+      <%= g.label :good, "Disagree" %> <br/>
+      <%= g.radio_button :good, :strongly_disagree  %>
+      <%= g.label :good, "Strongly Disagree" %> <br/>
+    </div>
+
+     <div class="field">
+      <h4> 2.) The information presented was helpful</h4>
+      <%= g.radio_button :helpful, :strongly_agree %>
+      <%= g.label :helpful, "Strongly Agree" %> <br/>
+      <%= g.radio_button :helpful, :no_opinion %>
+      <%= g.label :helpful, "No opinion" %> <br/>
+      <%= g.radio_button :helpful, :disagree %>
+      <%= g.label :helpful, "Disagree" %> <br/>
+      <%= g.radio_button :helpful, :strongly_disagree %>
+      <%= g.label :helpful, "Strongly Disagree" %> <br/>
+    </div>
+
+    <div class="field">
+      <h4> 2.) The training was easy to understand</h4>
+      <%= g.radio_button :understandable, :strongly_agree %>
+      <%= g.label :understandable, "Strongly Agree" %> <br/>
+      <%= g.radio_button :understandable, :no_opinion  %>
+      <%= g.label :understandable, "No opinion" %> <br/>
+      <%= g.radio_button :understandable, :disagree  %>
+      <%= g.label :understandable, "Disagree" %> <br/>
+      <%= g.radio_button :understandable, :strongly_disagree %>
+      <%= g.label :understandable, "Strongly Disagree" %> <br/>
+    </div>
+
+    <div class="field">
+      <h4> 3.) The support visits are helpful</h4>
+      <%= g.radio_button :support_visits_are_helpful, :strongly_agree, "Strongly Agree" %>
+      <%= g.label :support_visits_are_helpful, "Strongly Agree" %> <br/>
+      <%= g.radio_button :support_visits_are_helpful, :no_opinion, "No opinion" %>
+      <%= g.label :support_visits_are_helpful, "No opinion" %> <br/>
+      <%= g.radio_button :support_visits_are_helpful, :disagree, "Disagree" %>
+      <%= g.label :support_visits_are_helpful, "Disagree" %> <br/>
+      <%= g.radio_button :support_visits_are_helpful, :strongly_disagree, "Strongly Disagree" %>
+      <%= g.label :support_visits_are_helpful, "Strongly Disagree" %> <br/>
+    </div>
+
+    <div class="field">
+    <h4> 4.) What was good about the training? </h4>
+      <%= g.text_field :positives %>
+    </div>
+
+<div class="field">
+    <h4> 5.) What was good about the training? </h4>
+      <%= g.text_field :negatives %>
+    </div>
+
+  <div class="form-actions">
+       <%= g.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+  </div>
+
+</div>
+<% end %>
+

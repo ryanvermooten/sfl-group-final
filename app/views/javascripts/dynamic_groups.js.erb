@@ -1,0 +1,25 @@
+var groups = new Array();
+<% for group in @groups -%>
+  groups.push(new Array(<%= group.user_id %>, '<%=h group.name %>', <%= group.id %>));
+<% end -%>
+
+function userSelected() {
+  user_id = $('user_id').getValue();
+  options = $('group_id').options;
+  options.length = 1;
+  groups.each(function(group) {
+    if (group[0] == user_id) {
+      options[options.length] = new Option(group[1], group[2]);
+    }
+  });
+  if (options.length == 1) {
+    $('group_field').hide();
+  } else {
+    $('group_field').show();
+  }
+}
+
+document.observe('dom:loaded', function() {
+  userSelected();
+  $('group_id').observe('change', userSelected);
+});

@@ -1,0 +1,7 @@
+class CreateInputTypes < ActiveRecord::Migration
+  def change
+    create_table :input_types do |t|
+    	t.string :input_type
+    end
+  end
+end

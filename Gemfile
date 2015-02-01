@@ -28,6 +28,7 @@ gem 'jquery-turbolinks'
 gem 'rails_12factor'
 gem 'ruby-progressbar'
 gem 'ransack'
+gem 'active_importer'
 group :development do
  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
@@ -36,13 +37,13 @@ group :development do
   gem 'rails_layout'
 end
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 group :test do
-  gem 'guard-rspec'
+  gem 'shoulda'
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'

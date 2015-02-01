@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111070607) do
+ActiveRecord::Schema.define(version: 20150128105143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "adminpack"
+
+  create_table "Questionnaires_Questions", id: false, force: true do |t|
+    t.integer "question_id",      null: false
+    t.integer "questionnaire_id", null: false
+  end
+
+  add_index "Questionnaires_Questions", ["questionnaire_id", "question_id"], name: "qs_and_questionnaire_index", unique: true, using: :btree
 
   create_table "abilities", force: true do |t|
     t.integer "gardener_id"
@@ -56,6 +63,26 @@ ActiveRecord::Schema.define(version: 20141111070607) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "answers", force: true do |t|
+    t.string  "answer"
+    t.integer "question_id"
+    t.integer "gardener_id"
+  end
+
+  create_table "answers_gardeners", id: false, force: true do |t|
+    t.integer "answer_id",   null: false
+    t.integer "gardener_id", null: false
+  end
+
+  add_index "answers_gardeners", ["gardener_id", "answer_id"], name: "index_answers_gardeners_on_gardener_id_and_answer_id", using: :btree
+
+  create_table "answers_questions", id: false, force: true do |t|
+    t.integer "answer_id",   null: false
+    t.integer "question_id", null: false
+  end
+
+  add_index "answers_questions", ["answer_id", "question_id"], name: "index_answers_questions_on_answer_id_and_question_id", using: :btree
 
   create_table "attendance_registers", force: true do |t|
     t.integer  "training_session_id"
@@ -146,6 +173,20 @@ ActiveRecord::Schema.define(version: 20141111070607) do
     t.string  "selling_amount"
   end
 
+  create_table "gardener_questionnaires", force: true do |t|
+    t.integer  "gardener_id"
+    t.integer  "questionnaire_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gardener_statuses", force: true do |t|
+    t.integer  "gardener_id"
+    t.integer  "status_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "gardeners", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -216,6 +257,11 @@ ActiveRecord::Schema.define(version: 20141111070607) do
     t.integer "gardener_id"
   end
 
+  create_table "input_types", force: true do |t|
+    t.string "input_type"
+    t.string "input_allowed"
+  end
+
   create_table "living_arrangements", force: true do |t|
     t.integer "gardener_id"
     t.string  "marital_status"
@@ -252,6 +298,19 @@ ActiveRecord::Schema.define(version: 20141111070607) do
     t.boolean "charger"
   end
 
+  create_table "possible_issues", force: true do |t|
+    t.string "error_type"
+  end
+
+  create_table "questionnaires", force: true do |t|
+    t.string "name"
+  end
+
+  create_table "questions", force: true do |t|
+    t.string  "question"
+    t.integer "input_type_id"
+  end
+
   create_table "sfls", force: true do |t|
     t.integer "gardener_id"
     t.string  "referral"
@@ -269,10 +328,51 @@ ActiveRecord::Schema.define(version: 20141111070607) do
     t.integer  "gardener_id"
   end
 
+  create_table "training_evaluation_mscs", force: true do |t|
+    t.datetime "datetime"
+    t.string   "most_significant_change"
+    t.string   "final_coment"
+    t.integer  "training_evaluation_id"
+  end
+
+  create_table "training_evaluation_trainers", force: true do |t|
+    t.datetime "datetime"
+    t.string   "good"
+    t.string   "communicated_clearly"
+    t.string   "helpful"
+    t.string   "easy_to_talk_to"
+    t.string   "positive"
+    t.string   "negative"
+    t.integer  "training_evaluation_id"
+  end
+
+  create_table "training_evaluation_trainings", force: true do |t|
+    t.datetime "datetime"
+    t.string   "good"
+    t.string   "helpful"
+    t.string   "understandable"
+    t.string   "support_visits_are_helpful"
+    t.string   "positives"
+    t.string   "negatives"
+    t.integer  "training_evaluation_id"
+  end
+
+  create_table "training_evaluations", force: true do |t|
+    t.integer "group_id"
+  end
+
   create_table "training_sessions", force: true do |t|
     t.integer  "attendance_registers_id"
     t.string   "name"
     t.integer  "date_held"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "troubleshoots", force: true do |t|
+    t.string   "user_id"
+    t.string   "issue"
+    t.string   "datetime"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

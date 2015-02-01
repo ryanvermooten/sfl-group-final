@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :gardener_statuses
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :phone_rentals
@@ -10,6 +12,12 @@ Rails.application.routes.draw do
   resources :groups
 
   resources :troubleshoots
+
+
+  resources :training_evaluations do
+    resources :training_evaluation_trainers
+  end
+
 
   root to: 'visitors#index'
   devise_for :users

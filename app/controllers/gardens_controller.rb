@@ -3,8 +3,9 @@ class GardensController < ApplicationController
 def new                                                   
   #1st you retrieve the group thanks to params[:group_id] 
   #2nd you build a new comment                            
-  @group = Group.find(params[:group_id])                  
+                    
   @gardener= Gardener.find(params[:gardener_id])
+  @group = @gardener.group(params[:group_id])
   @garden= Garden.new       
                                                           
   respond_to do |format|                                  
@@ -26,9 +27,10 @@ end
 # POST /groups/:group_id/group_gardeners.xml
   def create
     #1st you retrieve the group thanks to params[:group_id]
-  @group = Group.find(params[:group_id])
+  
     #2nd you create the trainer wih arguments in params [:gardener]
-  @gardener= @group.gardeners.find(params[:gardener_id])
+  @gardener= Gardener.find(params[:gardener_id])
+  @group = @gardener.group(params[:group_id])
   @garden = @gardener.build_garden garden_params
 
       if @garden.save

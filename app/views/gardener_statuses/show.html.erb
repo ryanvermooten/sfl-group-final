@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gardener:</strong>
+  <%= @gardener_status.gardener_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @gardener_status.status_id %>
+</p>
+
+<%= link_to 'Edit', edit_gardener_status_path(@gardener_status) %> |
+<%= link_to 'Back', gardener_statuses_path %>
