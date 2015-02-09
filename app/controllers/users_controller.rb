@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   after_action :verify_authorized
 
+  def sign_in
+  end
+
   def index
     @users = User.all
     authorize User

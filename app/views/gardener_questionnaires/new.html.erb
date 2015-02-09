@@ -1,0 +1,13 @@
+<%= form_for @gardener_questionnaire do |f| %>
+<div class ="field">
+
+	<%= f.label :questionnaire_id %>
+	<%= f.collection_select :questionnaire_id, Questionnaire.order(:name), :id, :name %>
+	</div>
+<% #<%= f.fields_for :group %>
+<% #<%= f.collection_select :group_id, current_user.groups.order(:name), :id, :name %>
+ <%= f.label :gardener_id %>
+<%= f.collection_select :gardener_id, current_user.gardeners.order(:group_id, :first_name), :group_id, :first_name %>
+
+	<div class="actions"> <%= f.submit %> </div>
+	<% end %>

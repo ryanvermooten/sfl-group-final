@@ -1,0 +1,9 @@
+<%= form_for [@gardener_questionnaire, @answer] do |f| %>
+<div class ="field">
+
+	<% @questionnaire.questions.each do |field| %>
+	<%= f.label field.question %>
+	<%= f.text_field :answer %>
+	<% end %>
+	<%= f.submit %>
+	<% end %>

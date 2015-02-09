@@ -13,16 +13,27 @@ Rails.application.routes.draw do
 
   resources :troubleshoots
 
+  resources :homepage
+
 
   resources :training_evaluations do
     resources :training_evaluation_trainers
   end
-
-
-  root to: 'visitors#index'
+  
   devise_for :users
+
+devise_scope :user do
+  authenticated :user do
+    root 'groups#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+end
   resources :users
   resources :groups do
+    resources :attendance_registers
     resources :gardeners do
       resources :gardens
       resources :living_arrangements
@@ -40,14 +51,19 @@ Rails.application.routes.draw do
       resources :follow_up_visit_eatings
       resources :follow_up_visit_sellings
       resources :follow_up_visit_impressions
+    end
   end
+  resources :questionnaires
+
+resources :gardener_questionnaires do
+  resources :answers
+end
    resources :attendance_registers
    resources :admin do
     resources :metrics
   end
-  end
-
 end
+
 
   #get '/dropbox/authorize', to: 'dropbox#authorize', :as => :dropbox_auth
  # get '/dropbox/callback', to: 'dropbox#callback', :as =>  :dropbox_callback

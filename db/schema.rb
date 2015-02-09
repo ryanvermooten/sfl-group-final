@@ -11,18 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128105143) do
+ActiveRecord::Schema.define(version: 20150209092616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "adminpack"
-
-  create_table "Questionnaires_Questions", id: false, force: true do |t|
-    t.integer "question_id",      null: false
-    t.integer "questionnaire_id", null: false
-  end
-
-  add_index "Questionnaires_Questions", ["questionnaire_id", "question_id"], name: "qs_and_questionnaire_index", unique: true, using: :btree
 
   create_table "abilities", force: true do |t|
     t.integer "gardener_id"
@@ -67,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150128105143) do
   create_table "answers", force: true do |t|
     t.string  "answer"
     t.integer "question_id"
-    t.integer "gardener_id"
+    t.integer "gardener_questionnaire_id"
   end
 
   create_table "answers_gardeners", id: false, force: true do |t|
@@ -306,6 +299,13 @@ ActiveRecord::Schema.define(version: 20150128105143) do
     t.string "name"
   end
 
+  create_table "questionnaires_questions", id: false, force: true do |t|
+    t.integer "question_id",      null: false
+    t.integer "questionnaire_id", null: false
+  end
+
+  add_index "questionnaires_questions", ["questionnaire_id", "question_id"], name: "qs_and_questionnaire_index", unique: true, using: :btree
+
   create_table "questions", force: true do |t|
     t.string  "question"
     t.integer "input_type_id"
@@ -326,6 +326,8 @@ ActiveRecord::Schema.define(version: 20150128105143) do
     t.datetime "avatar_updated_at"
     t.text     "notes"
     t.integer  "gardener_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "training_evaluation_mscs", force: true do |t|

@@ -1,4 +1,4 @@
 class GardenerQuestionnaire < ActiveRecord::Base
-	has_many :gardeners
-	has_many :questionnaires
+	belongs_to :gardener
+	belongs_to :questionnaire
 end
