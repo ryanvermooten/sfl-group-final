@@ -7,9 +7,13 @@ Rails.application.routes.draw do
 
   resources :extras
 
+  resources :navigation
+
   resources :phones
 
   resources :groups
+
+  resources :gardeners
 
   resources :troubleshoots
 

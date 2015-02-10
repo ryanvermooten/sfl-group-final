@@ -8,11 +8,13 @@ class GroupsController < ApplicationController
     @groups = current_user.groups
   end
 
+  def groups_find
+  end
+
   # GET /groups/1
   # GET /groups/1.json
   def show
     @group = Group.includes(:gardeners).where(id: params[:id]).first!
-   
   end
 
   # GET /groups/new

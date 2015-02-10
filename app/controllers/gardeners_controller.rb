@@ -54,12 +54,12 @@ class GardenersController < ApplicationController
     #1st you retrieve the group thanks to params[:group_id]
     group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
-    @gardener = group.gardeners.new(gardener_params)
+    @gardener = @group.gardeners.new(gardener_params)
 
     respond_to do |format|
       if @gardener.save
         #1st argument of redirect_to is an array, in order to build the correct route to the nested resource gardener
-      format.html {redirect_to([@gardener.group, @group], :notice => 'Home Gardener was successfully created' )}
+      format.html {redirect_to([@gardener.group], :notice => 'Home Gardener was successfully created' )}
       format.xml {render :xml => @gardener, :status => :created, :location => [@gardener.group,@gardener] }
       else
         format.html {render :action => "new"}
