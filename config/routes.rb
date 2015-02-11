@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  resources :gardener_statuses
+ 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  resources :gardener_statuses
+
   resources :phone_rentals
 
   resources :extras
 
   resources :navigation
+
+  resources :troubleshoots
 
   resources :phones
 
@@ -15,10 +19,7 @@ Rails.application.routes.draw do
 
   resources :gardeners
 
-  resources :troubleshoots
-
   resources :homepage
-
 
   resources :training_evaluations do
     resources :training_evaluation_trainers
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
 
 devise_scope :user do
   authenticated :user do
-    root 'groups#index', as: :authenticated_root
+    root 'homepage#index', as: :authenticated_root
   end
 
   unauthenticated do

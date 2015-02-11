@@ -4,9 +4,9 @@ class GardenersController < ApplicationController
   # GET /groups/:group_id/gardeners.xml
   def index
     #1st you retrieve the group thanks to params[:group_id]
-    group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     #2nd you get all the gardeners of this group
-    @gardeners= group.gardeners
+    @gardeners= @group.gardeners
 
     respond_to do |format|
         format.html # index.html.erb
@@ -16,9 +16,9 @@ class GardenersController < ApplicationController
 
   def show
 #1st you retrieve the group thanks to params[:group_id]
-    group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
 #2nd you retrieve the comment thanks to params[:id]
-    @gardener = group.gardeners.find(params[:id])
+    @gardener = @group.gardeners.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,9 +30,9 @@ class GardenersController < ApplicationController
 # GET /groups/:group_id/gardeners/new.xml
   def new
     #1st you retrieve the group thanks to params[:group_id]
-    group= Group.find(params[:group_id])
+    @group= Group.find(params[:group_id])
     #2nd you build a new comment
-    @gardener = group.gardeners.build
+    @gardener = @group.gardeners.build
 
     respond_to do |format|
       format.html #new.html.erb
@@ -43,16 +43,16 @@ class GardenersController < ApplicationController
 # GET /groups/:group_id/gardeners/:id/edit
   def edit
     #1st you retrieve the group thanks to params[:group_id]
-    group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     #2nd you retrieve the comment thanks to params[:id]
-    @gardener = group.gardeners.find(params[:id])
+    @gardener = @group.gardeners.find(params[:id])
   end
 
 # POST /groups/:group_id/group_gardeners
 # POST /groups/:group_id/group_gardeners.xml
   def create
     #1st you retrieve the group thanks to params[:group_id]
-    group = Group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     #2nd you create the trainer wih arguments in params [:gardener]
     @gardener = @group.gardeners.new(gardener_params)
 
@@ -71,8 +71,8 @@ class GardenersController < ApplicationController
 
   def update
     #1st you retrieve the group thanks to params[:group_id]
-    group = Group.find(params[:group_id])
-    @gardener = group.gardeners.find(params[:id])
+    @group = Group.find(params[:group_id])
+    @gardener = @group.gardeners.find(params[:id])
 
     respond_to do |format|
       if @gardener.update_attributes(gardener_params)
@@ -88,9 +88,9 @@ class GardenersController < ApplicationController
 
   def destroy
     #1st you retrieve the group thanks to params[:group_id]
-    group= Group.find(params[:group_id])
+    @group= Group.find(params[:group_id])
     #2nd you retrieve the gardener thanks to params[:id]
-    @gardener = group.gardeners.find(params[:id])
+    @gardener = @group.gardeners.find(params[:id])
     @gardener.destroy
 
     respond_to do |format|
