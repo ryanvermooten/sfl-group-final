@@ -1,3 +1,23 @@
-<div class = "page-header" >
-<h1> What task would you like to acheisssssve? </h1>
+<div class ="page-header">
+<h2> What task would you like to achieve? </h2>
 </div>
+<div class="row">
+        <div class="col-md-4">
+        <strong> Create a Group </strong> <br/>
+        <%= link_to new_group_path do %>
+			<%= image_tag "group.png" %> 
+		<% end %>
+		</div>
+        <div class="col-md-4">
+        <strong> Create a Gardener </strong> <br/>
+        <%= link_to new_navigation_path do %>
+			<%= image_tag "gardener.png" %> 
+		<% end %>
+		</div>
+        <div class="col-md-4">
+        <strong> Fill in a form </strong> <br/>
+        <%= link_to new_gardener_questionnaire_path do %>
+			<%= image_tag "forms.png" %> 
+		<% end %>
+		</div>
+      </div>
