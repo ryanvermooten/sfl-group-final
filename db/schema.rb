@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217091229) do
+ActiveRecord::Schema.define(version: 20150217100751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -248,6 +248,7 @@ ActiveRecord::Schema.define(version: 20150217091229) do
     t.text    "msc_qualitative"
     t.text    "final_notes"
     t.date    "date_answered"
+    t.string  "training_understandable"
   end
 
   create_table "groups", force: true do |t|
@@ -356,6 +357,7 @@ ActiveRecord::Schema.define(version: 20150217091229) do
     t.integer  "gardener_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date_created"
   end
 
   create_table "training_evaluation_mscs", force: true do |t|

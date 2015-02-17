@@ -15,8 +15,11 @@
 
   <div class="field">
 
+    <%= g.label :date_created, "The date the form was filled in" %>
+      <%= g.date_select (:date_created) %> <br/>
+
     <%= g.label :avatar, "please take a picture of the gardener in the garden" %>
-    <%= g.file_field :avatar %>
+      <%= g.file_field :avatar %>
     </div>
 
   <div class="field">

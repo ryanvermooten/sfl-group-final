@@ -57,7 +57,7 @@ class FollowUpVisitGardensController < ApplicationController
   private
  
   def follow_up_visit_garden_params
-    params.require(:follow_up_visit_garden).permit(:gardener_id,:still_gardening, :rating, :mini_nursery, :compost_heap, :trench_bed, :trench_bed_sum, :container_garden, :container_garden_sum, :other, :other_qualitative)
+    params.require(:follow_up_visit_garden).permit(:gardener_id, :date_created, :still_gardening, :rating, :mini_nursery, :compost_heap, :trench_bed, :trench_bed_sum, :container_garden, :container_garden_sum, :other, :other_qualitative)
   end
 
   def gardener_params

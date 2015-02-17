@@ -46,7 +46,7 @@ end
   private
  
   def support_visit_params
-    params.require(:support_visit).permit(:gardener_id, :notes)
+    params.require(:support_visit).permit(:gardener_id, :notes, :date_created)
   end
  
   def gardener_params
