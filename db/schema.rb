@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217100751) do
+ActiveRecord::Schema.define(version: 20150217141524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,10 +230,6 @@ ActiveRecord::Schema.define(version: 20150217100751) do
 
   create_table "group_evaluations", force: true do |t|
     t.integer "group_id"
-    t.integer "training_eval_id"
-    t.integer "trainer_eval_id"
-    t.integer "msc_eval_id"
-    t.integer "final_notes_id"
     t.string  "training_good"
     t.string  "training_information_helpful"
     t.string  "training_support_helpful"
