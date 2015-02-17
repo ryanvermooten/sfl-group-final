@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209092616) do
+ActiveRecord::Schema.define(version: 20150217091229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20150209092616) do
     t.integer "container_garden_sum"
     t.boolean "other"
     t.string  "other_qualitative"
+    t.date    "date_created"
   end
 
   create_table "follow_up_visit_impressions", force: true do |t|
@@ -227,6 +228,28 @@ ActiveRecord::Schema.define(version: 20150209092616) do
     t.string  "earning_power"
   end
 
+  create_table "group_evaluations", force: true do |t|
+    t.integer "group_id"
+    t.integer "training_eval_id"
+    t.integer "trainer_eval_id"
+    t.integer "msc_eval_id"
+    t.integer "final_notes_id"
+    t.string  "training_good"
+    t.string  "training_information_helpful"
+    t.string  "training_support_helpful"
+    t.text    "training_qualitative_positive"
+    t.text    "training_qualitative_negative"
+    t.string  "trainer_good"
+    t.string  "trainer_understandable"
+    t.string  "trainer_helpful"
+    t.string  "trainer_approachable"
+    t.text    "trainer_qualitative_positive"
+    t.text    "trainer_qualitative_negative"
+    t.text    "msc_qualitative"
+    t.text    "final_notes"
+    t.date    "date_answered"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "group_name"
     t.string   "area"
@@ -295,6 +318,10 @@ ActiveRecord::Schema.define(version: 20150209092616) do
     t.string "error_type"
   end
 
+  create_table "question_sections", force: true do |t|
+    t.string "section"
+  end
+
   create_table "questionnaires", force: true do |t|
     t.string "name"
   end
@@ -309,6 +336,7 @@ ActiveRecord::Schema.define(version: 20150209092616) do
   create_table "questions", force: true do |t|
     t.string  "question"
     t.integer "input_type_id"
+    t.integer "question_section_id"
   end
 
   create_table "sfls", force: true do |t|

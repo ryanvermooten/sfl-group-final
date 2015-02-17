@@ -63,6 +63,8 @@ end
 resources :gardener_questionnaires do
   resources :answers
 end
+resources :group_evaluations
+
    resources :attendance_registers
    resources :admin do
     resources :metrics

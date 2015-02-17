@@ -184,6 +184,11 @@ GEM
       activerecord (>= 3.0)
     polyglot (0.3.5)
     power_assert (0.2.2)
+    public_activity (1.4.2)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     puma (2.10.2)
       rack (>= 1.1, < 2.0)
     pundit (0.3.0)
@@ -344,6 +349,7 @@ DEPENDENCIES
   oboe-heroku
   paperclip-dropbox (>= 1.1.7)
   pg
+  public_activity
   puma
   pundit
   quiet_assets

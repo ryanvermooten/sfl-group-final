@@ -1,0 +1,6 @@
+	<%= f.label :group_id %>
+	<%= f.collection_select :group_id, Group.order(:group_name), :id, :group_name %>
+	</p>
+	<p>
+	<%= f.date_select (:date_answered) %>
+	</p>

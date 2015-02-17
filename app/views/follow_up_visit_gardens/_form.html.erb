@@ -3,11 +3,14 @@
 <%= form_for([@group, @gardener, @follow_up_visit_garden]) do |g| %>
 <fieldset>
 
-      <%= g.label :still_gardening?, "Is the gardener still gardening?" %> <br/>
+  <%= g.label :date_created, "The date the form was filled in" %>
+  <%= g.date_select (:date_created) %> <br/>
+      <%= g.label :still_gardening, "Is the gardener still gardening?" %> <br/>
       <%= g.check_box :still_gardening %> <body> rememeber to tick if true </body>
     </p>
 
     <p>
+    <%= g.label :rating, "please rate the garden according to SFL methods and pracices" %> <br/>
        <%= g.radio_button :rating, :one %>
       <%= g.label :rating_1, "1, Garden not good at all, gardener not practicing SFL gardening methods." %> <br/>
      <%= g.radio_button :rating, :two %>
