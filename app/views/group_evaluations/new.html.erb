@@ -1,12 +1,10 @@
 <%= form_for @group_evaluation do |f| %>
+<%= f.error_messages %>
 <div class ="field">
-<%= render :partial => 'group_and_date_step' %>
-
-<%= render :partial => 'training_step' %>
-
-<%= render :partial => 'trainer_step' %>
-
-<%= render :partial => 'msc_step' %>
+<%= render "#{@group_evaluation.current_step}_step", :f => f %>
 </div>
-
+<div class="form-actions">
+       <%= f.submit 'continue', :class =>  'btn btn-lg btn-success' %>
+       <%= f.submit 'back', :name => "back_button", :class =>  'btn btn-lg btn-success' unless @group_evaluation.first_step? %>
+     </div>
 	<% end %>
